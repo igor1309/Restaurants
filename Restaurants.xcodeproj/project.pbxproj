@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ACB602623610D4800263A36 /* ReportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602523610D4800263A36 /* ReportCard.swift */; };
 		2AE4D0F32360ECA0009E72A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F22360ECA0009E72A4 /* AppDelegate.swift */; };
 		2AE4D0F52360ECA0009E72A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F42360ECA0009E72A4 /* SceneDelegate.swift */; };
 		2AE4D0F72360ECA0009E72A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F62360ECA0009E72A4 /* ContentView.swift */; };
@@ -150,6 +151,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2ACB602523610D4800263A36 /* ReportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCard.swift; sourceTree = "<group>"; };
 		2AE4D0EF2360ECA0009E72A4 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE4D0F22360ECA0009E72A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AE4D0F42360ECA0009E72A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				2AE4D1642360ECD4009E72A4 /* Finance.swift */,
+				2ACB602523610D4800263A36 /* ReportCard.swift */,
 				2AE4D1622360ECD4009E72A4 /* CashFlowCard.swift */,
 				2AE4D1672360ECD4009E72A4 /* ProfitAndLoss4Parts.swift */,
 				2AE4D1652360ECD4009E72A4 /* ProfitAndLossStatement.swift */,
@@ -809,6 +812,7 @@
 				2AE4D1F52360ECD4009E72A4 /* ForFun.swift in Sources */,
 				2AE4D1DF2360ECD4009E72A4 /* MealRow.swift in Sources */,
 				2AE4D1A22360ECD4009E72A4 /* NoOfCovers.swift in Sources */,
+				2ACB602623610D4800263A36 /* ReportCard.swift in Sources */,
 				2AE4D1C32360ECD4009E72A4 /* EditRestaurant.swift in Sources */,
 				2AE4D21A2360ECD4009E72A4 /* ListRow.swift in Sources */,
 				2AE4D2032360ECD4009E72A4 /* CapExDetail.swift in Sources */,

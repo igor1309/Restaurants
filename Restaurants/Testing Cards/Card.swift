@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-public struct CardView: ViewModifier {
-    public var borderColor: Color = .systemGray
-    public var cornerRadius: CGFloat = 16
+struct CardView: ViewModifier {
+    var borderColor: Color = .systemGray
+    var cornerRadius: CGFloat = 16
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         content
             .padding()
             .overlay(RoundedRectangle(cornerRadius: cornerRadius,
@@ -23,15 +23,15 @@ public struct CardView: ViewModifier {
     }
 }
 
-public struct Card<Content: View>: View {
-    public var title: String
-    public var subtitle: String
-    public var trunk: Content
+struct Card<Content: View>: View {
+    var title: String
+    var subtitle: String
+    var trunk: Content
     
-    public var borderColor: Color = .systemGray
-    public var cornerRadius: CGFloat = 16
+    var borderColor: Color = .systemGray
+    var cornerRadius: CGFloat = 16
     
-    public init(title: String, subtitle: String, trunk: Content, borderColor: Color = .systemGray, cornerRadius: CGFloat = 16) {
+    init(title: String, subtitle: String, trunk: Content, borderColor: Color = .systemGray, cornerRadius: CGFloat = 16) {
         self.title = title
         self.subtitle = subtitle
         self.trunk = trunk
@@ -39,26 +39,27 @@ public struct Card<Content: View>: View {
         self.cornerRadius = cornerRadius
     }
     
-//    public init(title: String, subtitle: String, trunk: Content, cornerRadius: CGFloat) {
-//        self.title = title
-//        self.subtitle = subtitle
-//        self.trunk = trunk
-//        self.borderColor = .systemGray
-//        self.cornerRadius = cornerRadius
-//    }
-//
-//    public init(title: String, subtitle: String, trunk: Content) {
-//        self.title = title
-//        self.subtitle = subtitle
-//        self.trunk = trunk
-//        self.borderColor = .systemGray
-//        self.cornerRadius = 16
-//    }
+    //    init(title: String, subtitle: String, trunk: Content, cornerRadius: CGFloat) {
+    //        self.title = title
+    //        self.subtitle = subtitle
+    //        self.trunk = trunk
+    //        self.borderColor = .systemGray
+    //        self.cornerRadius = cornerRadius
+    //    }
+    //
+    //    init(title: String, subtitle: String, trunk: Content) {
+    //        self.title = title
+    //        self.subtitle = subtitle
+    //        self.trunk = trunk
+    //        self.borderColor = .systemGray
+    //        self.cornerRadius = 16
+    //    }
     
-public var body: some View {
+    var body: some View {
         VStack(alignment: .leading) {
             Text(title)
                 .font(.headline)
+                .foregroundColor(.systemTeal)
             
             Text(subtitle)
                 .font(.footnote)
@@ -90,21 +91,28 @@ struct Card_Previews: PreviewProvider {
                 .padding(.bottom, 3)
             }
         }
-        return Group {
-            Card(title: "This is a title",
-                 subtitle: "This is a long or not so long subtitle",
-                 trunk: trunk,
-                 borderColor: .systemPurple,
-                 cornerRadius: 32
-            )
-            
-            Card(title: "This is a title",
-                 subtitle: "This is a long or not so long subtitle",
-                 trunk: Text("And here goes the trunk. Could be quite big thing of its own."),
-                 borderColor: .orange,
-                 cornerRadius: 8
-            )
-        }
+        return
+            Group {
+                NavigationView {
+                    Card(title: "This is a title",
+                         subtitle: "This is a long or not so long subtitle",
+                         trunk: trunk,
+                         borderColor: .systemPurple,
+                         cornerRadius: 32
+                    )
+                }
+                
+                NavigationView {
+                    Card(title: "This is a title",
+                         subtitle: "This is a long or not so long subtitle",
+                         trunk: Text("And here goes the trunk. Could be quite big thing of its own."),
+                         borderColor: .orange,
+                         cornerRadius: 8
+                    )
+                }
+            }
+            .environment(\.colorScheme, .dark)
+        //        .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

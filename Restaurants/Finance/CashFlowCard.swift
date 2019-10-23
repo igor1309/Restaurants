@@ -59,11 +59,23 @@ struct CashFlowCard: View {
     }
 }
 
+struct TestCashFlowCard: View {
+    @EnvironmentObject var userData: UserData
+    var report: Report { userData.restaurant.cashFlowReport }
+    
+    var body: some View {
+        ReportCard(report: report)
+    }
+}
+
 #if DEBUG
 struct CashFlowCard_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CashFlowCard()
+            VStack {
+                CashFlowCard()
+                TestCashFlowCard()
+            }
         }
         .environment(\.sizeCategory, .extraLarge)
         .preferredColorScheme(.dark)

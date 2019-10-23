@@ -48,27 +48,27 @@ extension Restaurant {
         
         self.type = restaurant.type
         self.city = restaurant.city
-
+        
         self.concept = restaurant.concept
         self.description = restaurant.description
         self.comment = restaurant.comment
         self.status = restaurant.status
-
+        
         self.budget = restaurant.budget
         self.currency = restaurant.currency
-
+        
         self.insideSeating = restaurant.insideSeating
         self.outsideSeating = restaurant.outsideSeating
-
+        
         self.area = restaurant.area
         self.kitchenArea = restaurant.kitchenArea
         self.totalArea = restaurant.totalArea
-
+        
         self.sales = restaurant.sales
         self.opex = restaurant.opex
         self.capex = restaurant.capex
         self.kpi = restaurant.kpi
-
+        
         self.taxRate = restaurant.taxRate
     }
 }
@@ -144,4 +144,36 @@ extension Restaurant {
     var profitPerMonth: Double { ebitPerMonth - taxPerMonth }
     
     var cashFlowEstimatePerMonth: Double { profitPerMonth + depreciationPerMonth }
+}
+
+extension Restaurant {
+    var cashFlowReport: Report {
+        Report(name: "Cash Flow", description: "and Investment", lines: [
+            FinLine(title: "Investment",
+                    subtitle: "CapEx, total",
+                    detail: currency.idd + investment.formattedGrouped,
+                    subdetail: ""),
+            FinLine(title: "Cash Flow Est., per year",
+                    subtitle: "Net Profit + D&A, per month",
+                    detail: currency.idd + (cashFlowEstimatePerMonth * 12).formattedGrouped,
+                    subdetail: currency.idd + cashFlowEstimatePerMonth.formattedGrouped),
+            FinLine(title: cashFlowEstimatePerMonth > 0 ? "Investment Return in" : "Cash Flow is negative, no Investment return",
+                    subtitle: "Estimate",
+                    detail: cashFlowEstimatePerMonth > 0 ? (investment / cashFlowEstimatePerMonth).rounded(.up).formattedGrouped + " months" : "",
+                    subdetail: "")
+        ])
+    }
+}
+
+struct Report {
+    var name: String
+    var description: String
+    var lines: [FinLine]
+}
+
+struct FinLine: Hashable {
+    var title: String
+    var subtitle: String
+    var detail: String
+    var subdetail: String
 }
