@@ -27,14 +27,17 @@ struct NoOfCovers: View {
 #if DEBUG
 struct NoOfCovers_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            NoOfCovers()
-                .padding()
-            
-            Spacer()
-            Spacer()
+        NavigationView {
+            VStack {
+                NoOfCovers()
+                    .padding()
+                
+                Spacer()
+            }
         }
         .environmentObject(UserData())
+        .environment(\.colorScheme, .dark)
+        .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

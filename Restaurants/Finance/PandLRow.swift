@@ -50,19 +50,23 @@ struct PandLRow: View {
 #if DEBUG
 struct PandLRow_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            PandLRow(title: "Title",
-                     subtitle: "Subtitle",
-                     detail: "detail",
-                     subdetail: "subdetail",
-                     highlight: true)
-            
-            PandLRow(title: "Title",
-                     subtitle: "Subtitle",
-                     detail: "detail",
-                     subdetail: "subdetail",
-                     highlight: false)
+        NavigationView {
+            Group {
+                PandLRow(title: "Title",
+                         subtitle: "Subtitle",
+                         detail: "detail",
+                         subdetail: "subdetail",
+                         highlight: true)
+                
+                PandLRow(title: "Title",
+                         subtitle: "Subtitle",
+                         detail: "detail",
+                         subdetail: "subdetail",
+                         highlight: false)
+            }
         }
+        .environment(\.colorScheme, .dark)
+        .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

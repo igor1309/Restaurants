@@ -12,7 +12,7 @@ struct ProfitAndLossExtrasLines: View {
     @EnvironmentObject private var userData: UserData
     var restaurant: Restaurant { userData.restaurant }
     var currency: Currency { userData.restaurant.currency }
-
+    
     var revenue: Double { restaurant.sales.revenuePerMonth }
     var foodcost: Double { restaurant.sales.foodcostPerMonth }
     var salary: Double { restaurant.salaryPerMonth }
@@ -56,10 +56,12 @@ struct ProfitAndLossExtras: View {
 #if DEBUG
 struct ProfitAndLossExtras_Previews: PreviewProvider {
     static var previews: some View {
-        ProfitAndLossExtras()
-            .environment(\.sizeCategory, .extraLarge)
-            .preferredColorScheme(.dark)
-            .environmentObject(UserData())
+        NavigationView {
+            ProfitAndLossExtras()
+        }
+        .environment(\.sizeCategory, .extraLarge)
+        .preferredColorScheme(.dark)
+        .environmentObject(UserData())
     }
 }
 #endif

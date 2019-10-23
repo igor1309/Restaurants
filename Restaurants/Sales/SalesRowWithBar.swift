@@ -71,45 +71,49 @@ struct SalesRowWithBar_Previews: PreviewProvider {
             ]
         }
         
-        return VStack {
-            SalesRowWithBar(bar: CGFloat(33),
-                            bars: bars,
-                            title: "This is a Title",
-                            detail: "detail here",
-                            subdetail: "subdetail")
-            
-            SalesRowWithBar(bar: CGFloat(23),
-                            bars: bars,
-                            height: 4,
-                            cornerRadius: 2,
-                            colorLess: .systemRed,
-                            title: "This is a Title",
-                            detail: "detail here",
-                            subdetail: "subdetail",
-                            highlight: true)
-            
-            SalesRowWithBar(bar: CGFloat(30),
-                            bars: bars,
-                            height: 16,
-                            cornerRadius: 8,
-                            colorMore: .systemBlue,
-                            fill: false,
-                            title: "Title",
-                            detail: "detail",
-                            subdetail: "subdetail",
-                            highlight: false)
-            
-            SalesRowWithBar(bar: CGFloat(30),
-                            bars: bars,
-                            height: 16,
-                            cornerRadius: 4,
-                            colorMore: .systemPink,
-                            fill: false,
-                            title: "Title",
-                            detail: "detail",
-                            subdetail: "subdetail",
-                            highlight: false)
+        return NavigationView {
+            VStack {
+                SalesRowWithBar(bar: CGFloat(33),
+                                bars: bars,
+                                title: "This is a Title",
+                                detail: "detail here",
+                                subdetail: "subdetail")
+                
+                SalesRowWithBar(bar: CGFloat(23),
+                                bars: bars,
+                                height: 4,
+                                cornerRadius: 2,
+                                colorLess: .systemRed,
+                                title: "This is a Title",
+                                detail: "detail here",
+                                subdetail: "subdetail",
+                                highlight: true)
+                
+                SalesRowWithBar(bar: CGFloat(30),
+                                bars: bars,
+                                height: 16,
+                                cornerRadius: 8,
+                                colorMore: .systemBlue,
+                                fill: false,
+                                title: "Title",
+                                detail: "detail",
+                                subdetail: "subdetail",
+                                highlight: false)
+                
+                SalesRowWithBar(bar: CGFloat(30),
+                                bars: bars,
+                                height: 16,
+                                cornerRadius: 4,
+                                colorMore: .systemPink,
+                                fill: false,
+                                title: "Title",
+                                detail: "detail",
+                                subdetail: "subdetail",
+                                highlight: false)
+            }
         }
+        .environment(\.colorScheme, .dark)
+        .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

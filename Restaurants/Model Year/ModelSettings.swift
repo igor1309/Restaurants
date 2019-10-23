@@ -15,9 +15,11 @@ struct ModelSettings: View {
     var body: some View {
         NavigationView {
             Form {
-                Text("Discount Rates")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                Section(footer:
+                    //  MARK: FINISH THIS NOTE
+                Text("Use discount rates to estimate results for the first three years.")) {
+                    EmptyView()
+                }
                 
                 ForEach(userData.modelYears.indices) { index in
                     Section(header: Text("Model Year \(index + 1)".uppercased())
@@ -33,9 +35,7 @@ struct ModelSettings: View {
             .navigationBarTitle("Model Settings")
                 
             .navigationBarItems(trailing: TrailingButton("Done") {
-                self.presentation.wrappedValue.dismiss()
-            }
-            .foregroundColor(Color.accentColor))
+                self.presentation.wrappedValue.dismiss() })
         }
     }
 }
@@ -44,6 +44,6 @@ struct ModelSettings_Previews: PreviewProvider {
     static var previews: some View {
         ModelSettings()
             .environmentObject(UserData())
-        
+            .environment(\.colorScheme, .dark)
     }
 }

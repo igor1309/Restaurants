@@ -16,7 +16,7 @@ struct SeatingCard: View {
             VStack {
                 Card(title: "Seating",
                      subtitle: "Inside and Outside Seating",
-                     trunk: Seating(restaurant: userData.restaurant),
+                     trunk: SeatingTrunk(restaurant: userData.restaurant),
                      cornerRadius: 8)
                 
                 Spacer()
@@ -30,8 +30,12 @@ struct SeatingCard: View {
 #if DEBUG
 struct SeatingCard_Previews: PreviewProvider {
     static var previews: some View {
-        SeatingCard()
-            .environmentObject(UserData())
+        NavigationView {
+            SeatingCard()
+        }
+        .environmentObject(UserData())
+        .environment(\.colorScheme, .dark)
+        .contentShape(Rectangle())
     }
 }
 #endif

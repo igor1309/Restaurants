@@ -1,5 +1,5 @@
 //
-//  Seating.swift
+//  SeatingTrunk.swift
 //
 //  Created by Igor Malyarov on 06.08.2019.
 //  Copyright © 2019 Igor Malyarov. All rights reserved.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Seating: View {
+struct SeatingTrunk: View {
     var restaurant: Restaurant
     
     let vstackSpacing: CGFloat = 12
@@ -50,10 +50,10 @@ struct Seating: View {
 }
 
 #if DEBUG
-struct Seating_Previews: PreviewProvider {
+struct SeatingTrunk_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            Seating(restaurant: sampleRestaurants[0])
+            SeatingTrunk(restaurant: sampleRestaurants[0])
                 .padding()
         }
         .environment(\.colorScheme, .dark)

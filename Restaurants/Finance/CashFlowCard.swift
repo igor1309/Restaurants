@@ -12,7 +12,7 @@ struct CashFlowLines: View {
     @EnvironmentObject private var userData: UserData
     var restaurant: Restaurant { userData.restaurant }
     var currency: Currency { userData.restaurant.currency }
-
+    
     var investment: Double { restaurant.investment }
     var cashFlowEstimate: Double { restaurant.cashFlowEstimatePerMonth }
     
@@ -62,10 +62,12 @@ struct CashFlowCard: View {
 #if DEBUG
 struct CashFlowCard_Previews: PreviewProvider {
     static var previews: some View {
-        CashFlowCard()
-            .environment(\.sizeCategory, .extraLarge)
-            .preferredColorScheme(.dark)
-            .environmentObject(UserData())
+        NavigationView {
+            CashFlowCard()
+        }
+        .environment(\.sizeCategory, .extraLarge)
+        .preferredColorScheme(.dark)
+        .environmentObject(UserData())
     }
 }
 #endif

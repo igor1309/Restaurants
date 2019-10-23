@@ -13,7 +13,7 @@ struct BusinessListModal: View {
     @EnvironmentObject private var userData: UserData
     @State private var showModal = false
     @State private var modal: ModalType = .options
-        
+    
     var body: some View {
         NavigationView {
             List {
@@ -35,8 +35,6 @@ struct BusinessListModal: View {
                     }
                 }
             }
-                
-                
             .listStyle(GroupedListStyle())
                 
                 .navigationBarTitle(Text("Restaurants"))//, displayMode: .inline)
@@ -49,21 +47,15 @@ struct BusinessListModal: View {
                         }
                         TrailingButtonSFSymbol("plus") {
                             self.modal = .new
-                            self.showModal = true
-                        }
-                })
-                
-                .sheet(isPresented: self.$showModal) {
-                    if self.modal == .new {
-                        CreateRestaurantModal()
-                            .environmentObject(self.userData)
-                    }
-                    
-                    if self.modal == .options {
-                        CreateRestaurantWithOptions()
-                            .environmentObject(self.userData)
-                    }
-            }
+                            self.showModal = true }}
+                        .sheet(isPresented: self.$showModal) {
+                            if self.modal == .new {
+                                CreateRestaurantModal()
+                                    .environmentObject(self.userData)
+                            }
+                            if self.modal == .options {
+                                CreateRestaurantWithOptions()
+                                    .environmentObject(self.userData) }})
         }
     }
 }

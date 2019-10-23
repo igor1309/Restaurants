@@ -11,7 +11,7 @@ import SwiftUI
 struct SalesCard4: View {
     @EnvironmentObject private var userData: UserData
     var currency: Currency { userData.restaurant.currency }
-
+    
     var restaurant: Restaurant { userData.restaurant }
     var period: Period = .week
     
@@ -49,8 +49,12 @@ struct SalesCard4: View {
 #if DEBUG
 struct SalesCard4_Previews: PreviewProvider {
     static var previews: some View {
-        SalesCard4().padding()
-            .environmentObject(UserData())
+        NavigationView {
+            SalesCard4().padding()
+        }
+        .environmentObject(UserData())
+        .environment(\.colorScheme, .dark)
+        .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

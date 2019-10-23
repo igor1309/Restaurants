@@ -70,6 +70,8 @@ struct SalesView_Previews: PreviewProvider {
     static var previews: some View {
         SalesView()
             .environmentObject(UserData())
+            .environment(\.colorScheme, .dark)
+            .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

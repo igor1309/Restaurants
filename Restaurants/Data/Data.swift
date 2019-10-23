@@ -38,7 +38,7 @@ func loadModelYearData() -> [ModelYear] {
         return [
             ModelYear(id: 1, discount: 0.20),
             ModelYear(id: 2, discount: 0.10),
-            ModelYear(id: 3, discount: 0.5)//,
+            ModelYear(id: 3, discount: 0.05)//,
             //            ModelYear(id: 4, discount: 0.00)
         ]
     }

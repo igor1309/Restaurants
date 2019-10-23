@@ -12,7 +12,7 @@ struct OpExLines: View {
     @EnvironmentObject private var userData: UserData
     var restaurant: Restaurant { userData.restaurant }
     var currency: Currency { userData.restaurant.currency }
-
+    
     var revenue: Double { restaurant.sales.revenuePerMonth }
     var opEx: Double { restaurant.opExPerMonth }
     var salary: Double { restaurant.salaryPerMonth }
@@ -87,7 +87,7 @@ struct SalaryLines: View {
     @EnvironmentObject private var userData: UserData
     var restaurant: Restaurant { userData.restaurant }
     var currency: Currency { userData.restaurant.currency }
-
+    
     var revenue: Double { restaurant.sales.revenuePerMonth }
     var opEx: Double { restaurant.opExPerMonth }
     var salary: Double { restaurant.salaryPerMonth }
@@ -144,13 +144,14 @@ struct OpExCard: View {
 #if DEBUG
 struct OpExCard_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            OpExCard()
-                .environment(\.sizeCategory, .extraLarge)
-            
-            //            SalaryCard()
+        NavigationView {
+            VStack {
+                OpExCard()
+            }
         }
         .environmentObject(UserData())
+        .environment(\.colorScheme, .dark)
+        .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

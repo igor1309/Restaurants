@@ -15,7 +15,7 @@ struct ProfitAndLoss4PartsLines: View {
     let dividerOpacity = 1.0
     
     var currency: Currency { userData.restaurant.currency }
-
+    
     var revenue: Double { restaurant.sales.revenuePerMonth }
     var foodcost: Double { restaurant.sales.foodcostPerMonth }
     var salary: Double { restaurant.salaryPerMonth }
@@ -83,14 +83,16 @@ struct ProfitAndLoss4Parts: View {
 #if DEBUG
 struct ProfitAndLoss4Parts_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            //            ProfitAndLoss4PartsLines()
-            //                .padding()
-            
-            ForEach([ /* "iPhone SE", "iPhone XS Max", */ "iPhone XS"], id: \.self) { deviceName in
-                ProfitAndLoss4Parts()
-                    .previewDevice(PreviewDevice(rawValue: deviceName))
-                    .previewDisplayName(deviceName)
+        NavigationView {
+            Group {
+                //            ProfitAndLoss4PartsLines()
+                //                .padding()
+                
+                ForEach([ /* "iPhone SE", "iPhone XS Max", */ "iPhone XS"], id: \.self) { deviceName in
+                    ProfitAndLoss4Parts()
+                        .previewDevice(PreviewDevice(rawValue: deviceName))
+                        .previewDisplayName(deviceName)
+                }
             }
         }
         .environment(\.sizeCategory, .extraLarge)

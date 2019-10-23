@@ -38,7 +38,7 @@ struct SalesRow: View {
 struct SalesRow_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            List {
+            VStack {
                 SalesRow(title: "Title // row with highlight",
                          detail: "detail",
                          subdetail: "subdetail",
