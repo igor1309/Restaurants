@@ -8,6 +8,16 @@
 
 import SwiftUI
 
+struct OpExCard: View {
+    var body: some View {
+        Card(title: "Operating Expenses",
+             subtitle: "OpEx, monthly",
+             trunk: OpExLines(),
+             borderColor: .gray,
+             cornerRadius: 8)
+    }
+}
+
 struct OpExLines: View {
     @EnvironmentObject private var userData: UserData
     var restaurant: Restaurant { userData.restaurant }
@@ -128,16 +138,6 @@ struct SalaryLines: View {
                 }
             }
         }
-    }
-}
-
-struct OpExCard: View {
-    var body: some View {
-        Card(title: "Operating Expenses",
-             subtitle: "OpEx, monthly",
-             trunk: OpExLines(),
-             borderColor: .gray,
-             cornerRadius: 8)
     }
 }
 

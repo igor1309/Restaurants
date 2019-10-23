@@ -386,6 +386,9 @@
 				2AE4D10E2360ECD3009E72A4 /* SalesCard4.swift */,
 				2AE4D10F2360ECD3009E72A4 /* NoOfCovers.swift */,
 				2AE4D1102360ECD3009E72A4 /* SalesRow.swift */,
+				2AE4D1602360ECD4009E72A4 /* MarginsAndCostsCard.swift */,
+				2AE4D1612360ECD4009E72A4 /* UnitEconomics.swift */,
+				2AE4D1632360ECD4009E72A4 /* MarginsPerCoverCard.swift */,
 			);
 			path = Sales;
 			sourceTree = "<group>";
@@ -436,12 +439,12 @@
 		2AE4D1212360ECD3009E72A4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				2AE4D1222360ECD3009E72A4 /* sampleSales.swift */,
 				2AE4D1232360ECD3009E72A4 /* Data.swift */,
-				2AE4D1242360ECD3009E72A4 /* sampleCapex.swift */,
 				2AE4D1252360ECD3009E72A4 /* sampleRestaurants.swift */,
-				2AE4D1262360ECD3009E72A4 /* sampleKPI.swift */,
+				2AE4D1222360ECD3009E72A4 /* sampleSales.swift */,
 				2AE4D1272360ECD3009E72A4 /* sampleOpex.swift */,
+				2AE4D1242360ECD3009E72A4 /* sampleCapex.swift */,
+				2AE4D1262360ECD3009E72A4 /* sampleKPI.swift */,
 				2AE4D1282360ECD3009E72A4 /* WorkWithJSON.swift */,
 			);
 			path = Data;
@@ -483,24 +486,24 @@
 		2AE4D13E2360ECD3009E72A4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2AE4D13F2360ECD3009E72A4 /* Opex.swift */,
-				2AE4D1402360ECD3009E72A4 /* Period.swift */,
-				2AE4D1412360ECD3009E72A4 /* Model.swift */,
-				2AE4D1422360ECD3009E72A4 /* ModalType.swift */,
-				2AE4D1432360ECD3009E72A4 /* Currency.swift */,
-				2AE4D1442360ECD3009E72A4 /* DayOfWeek.swift */,
-				2AE4D1452360ECD3009E72A4 /* KPIItem.swift */,
-				2AE4D1462360ECD3009E72A4 /* Meal.swift */,
 				2AE4D1472360ECD3009E72A4 /* UserData.swift */,
-				2AE4D1482360ECD3009E72A4 /* KPI.swift */,
-				2AE4D1492360ECD3009E72A4 /* RestaurantType.swift */,
-				2AE4D14A2360ECD3009E72A4 /* Capex.swift */,
+				2AE4D1412360ECD3009E72A4 /* Model.swift */,
+				2AE4D1402360ECD3009E72A4 /* Period.swift */,
+				2AE4D1432360ECD3009E72A4 /* Currency.swift */,
+				2AE4D1422360ECD3009E72A4 /* ModalType.swift */,
+				2AE4D1442360ECD3009E72A4 /* DayOfWeek.swift */,
 				2AE4D14B2360ECD3009E72A4 /* Business.swift */,
-				2AE4D14C2360ECD3009E72A4 /* Sales.swift */,
-				2AE4D14D2360ECD3009E72A4 /* Status.swift */,
-				2AE4D14E2360ECD3009E72A4 /* CapExItem.swift */,
 				2AE4D14F2360ECD3009E72A4 /* Restaurant.swift */,
+				2AE4D1492360ECD3009E72A4 /* RestaurantType.swift */,
+				2AE4D14D2360ECD3009E72A4 /* Status.swift */,
+				2AE4D14C2360ECD3009E72A4 /* Sales.swift */,
+				2AE4D1462360ECD3009E72A4 /* Meal.swift */,
+				2AE4D13F2360ECD3009E72A4 /* Opex.swift */,
 				2AE4D1502360ECD3009E72A4 /* OpExItem.swift */,
+				2AE4D14A2360ECD3009E72A4 /* Capex.swift */,
+				2AE4D14E2360ECD3009E72A4 /* CapExItem.swift */,
+				2AE4D1482360ECD3009E72A4 /* KPI.swift */,
+				2AE4D1452360ECD3009E72A4 /* KPIItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -528,15 +531,12 @@
 			isa = PBXGroup;
 			children = (
 				2AE4D1642360ECD4009E72A4 /* Finance.swift */,
-				2AE4D1082360ECD3009E72A4 /* OpExCard.swift */,
-				2AE4D15F2360ECD4009E72A4 /* PandLRow.swift */,
-				2AE4D1602360ECD4009E72A4 /* MarginsAndCostsCard.swift */,
-				2AE4D1612360ECD4009E72A4 /* UnitEconomics.swift */,
 				2AE4D1622360ECD4009E72A4 /* CashFlowCard.swift */,
-				2AE4D1632360ECD4009E72A4 /* MarginsPerCoverCard.swift */,
+				2AE4D1672360ECD4009E72A4 /* ProfitAndLoss4Parts.swift */,
 				2AE4D1652360ECD4009E72A4 /* ProfitAndLossStatement.swift */,
 				2AE4D1662360ECD4009E72A4 /* ProfitAndLossExtras.swift */,
-				2AE4D1672360ECD4009E72A4 /* ProfitAndLoss4Parts.swift */,
+				2AE4D1082360ECD3009E72A4 /* OpExCard.swift */,
+				2AE4D15F2360ECD4009E72A4 /* PandLRow.swift */,
 			);
 			path = Finance;
 			sourceTree = "<group>";
