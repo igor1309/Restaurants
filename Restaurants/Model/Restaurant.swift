@@ -148,12 +148,11 @@ extension Restaurant {
 
 extension Restaurant {
     var reports: [Report] {
-        [
-            //         cashFlowReport,
-            //         profitAndLoss4PartsReport,
-            //         profitAndLossReport,
-            //         profitAndLossExtrasReport,
-            operatingExpensesReport
+        [cashFlowReport,
+         profitAndLoss4PartsReport,
+         profitAndLossReport,
+         profitAndLossExtrasReport,
+         operatingExpensesReport
         ]
     }
 }
