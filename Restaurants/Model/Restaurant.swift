@@ -90,20 +90,21 @@ extension Restaurant {
     var investment: Double { capex.capexes.reduce(0, { $0 + Double($1.amount) }) }
     
     //  MARK: может быть опция — включать kitchen salary в себестоимость или нет
-    var grossProfitPerMonth: Double { sales.revenuePerMonth - sales.cogsPerMonth - salaryKitchenPerMonth}
+    var grossProfitPerMonthDUMMY: Double { sales.revenuePerMonth - sales.cogsPerMonth}
+    //  Full Production Cost
+    var grossFPCProfitPerMonth: Double { sales.revenuePerMonth - sales.cogsPerMonth - salaryKitchenPerMonth}
     
-    var salaryPerMonth: Double {
-        let salary = opex.opexes.filter { $0.type == .salaryKitchen || $0.type == .salaryExKitchen }
-        return Double(salary.reduce(0, { $0 + $1.amount }))
-    }
-    var salaryKitchenPerMonth: Double {
-        let salary = opex.opexes.filter { $0.type == .salaryKitchen }
-        return Double(salary.reduce(0, { $0 + $1.amount }))
-    }
-    var salaryExKitchenPerMonth: Double {
-        let salary = opex.opexes.filter { $0.type == .salaryExKitchen }
-        return Double(salary.reduce(0, { $0 + $1.amount }))
-    }
+    var salaryPerMonth: Double { Double(opex.opexes
+        .filter { $0.type == .salaryKitchen || $0.type == .salaryExKitchen }
+        .reduce(0, { $0 + $1.amount })) }
+    
+    var salaryKitchenPerMonth: Double { Double(opex.opexes
+        .filter { $0.type == .salaryKitchen }
+        .reduce(0, { $0 + $1.amount })) }
+    
+    var salaryExKitchenPerMonth: Double { Double(opex.opexes
+        .filter { $0.type == .salaryExKitchen }
+        .reduce(0, { $0 + $1.amount })) }
     
     var primeCostPerMonth: Double { sales.foodcostPerMonth + salaryPerMonth }
     
@@ -112,28 +113,26 @@ extension Restaurant {
     var capEx: Double { Double(capex.capexes.reduce(0, { $0 + $1.amount})) }
     
     //  https://pos.toasttab.com/blog/restaurant-profit-and-loss-statement
-    var occupancyCostsPerMonth: Double {
-        let rent = opex.opexes.filter { $0.type == .rent }
-        return Double(rent.reduce(0, { $0 + $1.amount }))
-    }
+    var occupancyCostsPerMonth: Double { Double(opex.opexes
+        .filter { $0.type == .rent }
+        .reduce(0, { $0 + $1.amount })) }
+    
     var rentPerMonth: Double { occupancyCostsPerMonth }
     
-    var utilitiesPerMonth: Double {
-        let utilities = opex.opexes.filter { $0.type == .utilities }
-        return Double(utilities.reduce(0, { $0 + $1.amount }))
-    }
+    var utilitiesPerMonth: Double { Double(opex.opexes
+        .filter { $0.type == .utilities }
+        .reduce(0, { $0 + $1.amount })) }
     
-    var marketingPerMonth: Double {
-        let marketing = opex.opexes.filter { $0.type == .marketing }
-        return Double(marketing.reduce(0, { $0 + $1.amount }))
-    }
+    var marketingPerMonth: Double { Double(opex.opexes
+        .filter { $0.type == .marketing }
+        .reduce(0, { $0 + $1.amount })) }
     
-    var otherOpExPerMonth: Double {
-        let otherOpEx = opex.opexes.filter { $0.type == .other }
-        return Double(otherOpEx.reduce(0, { $0 + $1.amount }))
-    }
+    var otherOpExPerMonth: Double { Double(opex.opexes
+        .filter { $0.type == .other }
+        .reduce(0, { $0 + $1.amount })) }
     
-    var depreciationPerMonth: Double { capex.capexes.reduce(0, { $0 + $1.depreciationPerMonth }) }
+    var depreciationPerMonth: Double { capex.capexes
+        .reduce(0, { $0 + $1.depreciationPerMonth }) }
     
     var ebitPerMonth: Double { sales.revenuePerMonth - sales.foodcostPerMonth - opExPerMonth - depreciationPerMonth }
     
@@ -154,13 +153,14 @@ extension Restaurant {
 extension Restaurant {
     var reports: [Report] {
         [
-         profitAndLossReport,
-         profitAndLossExtrasReport,
-         operatingExpensesReport,
-         
-         
-         cashEarningsReport,
-         profitAndLoss4PartsReport
+            profitAndLossExtrasReport,
+            operatingExpensesReport,
+            
+            
+            cashEarningsReport,
+            profitAndLoss4PartsReport,
+            profitAndLossReport,
+            profitAndLossReportFPC
         ]
     }
 }
@@ -169,7 +169,7 @@ extension Restaurant {
     var revenue: Double { sales.revenuePerMonth }
     var foodcost: Double { sales.foodcostPerMonth }
     var expenses: Double { opExPerMonth - salaryPerMonth + depreciationPerMonth + taxPerMonth }
-    var opExForPandL: Double { opExPerMonth - salaryKitchenPerMonth - occupancyCostsPerMonth }
+    var opExForPandL: Double { opExPerMonth - salaryKitchenPerMonth }
     
     var cashEarningsReport: Report {
         Report(name: "Investment and Cash Flow",
@@ -199,31 +199,32 @@ extension Restaurant {
         if revenue > 0 {
             return Report(name: "P&L: \"4 Pieces of the Pie\"",
                           description: "Simplistic Profit and Loss Statement, monthly",
-                          lines: [ReportLine(title: "Revenue (sales), ex VAT",
-                                             subtitle: "\(sales.noOfActiveRevenueStreams) active revenue streams (\(sales.noOfRevenueStreams) total)",
-                                             detail: currency.idd + revenue.formattedGrouped,
-                                             subdetail: ""),
-                                  ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
-                                  ReportLine(title: "Foodcost",
-                                             subtitle: "Food and beverages cost (GOGS)",
-                                             detail: currency.idd + foodcost.formattedGrouped,
-                                             subdetail: (foodcost / revenue).formattedPercentageWithDecimals),
-                                  ReportLine(title: "Salary",
-                                             subtitle: "Payroll Expenses, total",
-                                             detail: currency.idd + salaryPerMonth.formattedGrouped,
-                                             subdetail: (salaryPerMonth / revenue).formattedPercentageWithDecimals),
-                                  ReportLine(title: "Expenses, ex Salary",
-                                             subtitle: "Rent, Other OpEx, D&A, Tax",
-                                             detail: currency.idd + expenses.formattedGrouped,
-                                             subdetail: (expenses / revenue).formattedPercentageWithDecimals),
-                                  ReportLine(title: "Net Profit/Loss",
-                                             subtitle: "",
-                                             detail: currency.idd + profitPerMonth.formattedGrouped,
-                                             subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals),
-                                  ReportLine(title: "",
-                                             subtitle: "Note: All data is ex VAT (\"netto\")",
-                                             detail: "",
-                                             subdetail: "")
+                          lines: [
+                            ReportLine(title: "Revenue (sales), ex VAT",
+                                       subtitle: "\(sales.noOfActiveRevenueStreams) active revenue streams (\(sales.noOfRevenueStreams) total)",
+                                detail: currency.idd + revenue.formattedGrouped,
+                                subdetail: ""),
+                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                            ReportLine(title: "Foodcost",
+                                       subtitle: "Food and beverages cost (GOGS)",
+                                       detail: currency.idd + foodcost.formattedGrouped,
+                                       subdetail: (foodcost / revenue).formattedPercentageWithDecimals),
+                            ReportLine(title: "Salary",
+                                       subtitle: "Payroll Expenses, total",
+                                       detail: currency.idd + salaryPerMonth.formattedGrouped,
+                                       subdetail: (salaryPerMonth / revenue).formattedPercentageWithDecimals),
+                            ReportLine(title: "Expenses, ex Salary",
+                                       subtitle: "Rent, Other OpEx, D&A, Tax",
+                                       detail: currency.idd + expenses.formattedGrouped,
+                                       subdetail: (expenses / revenue).formattedPercentageWithDecimals),
+                            ReportLine(title: "Net Profit/Loss",
+                                       subtitle: "",
+                                       detail: currency.idd + profitPerMonth.formattedGrouped,
+                                       subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals),
+                            ReportLine(title: "",
+                                       subtitle: "Note: All data is ex VAT (\"netto\").",
+                                       detail: "",
+                                       subdetail: "")
             ])
         } else {
             return Report(name: "P&L: 4 Pieces of the Pie report is not available", description: "No Revenue Streams Yet", lines: [])
@@ -235,43 +236,34 @@ extension Restaurant {
             return Report(name: "P&L",
                           description: "Profit and Loss Statement, monthly",
                           lines: [
-                            
-                            
-                            ReportLine(title: "Revenue (sales)",
-                                       subtitle: "All Revenue Streams",
-                                       detail: currency.idd + revenue.formattedGrouped,
-                                       subdetail: ""),
+                            ReportLine(title: "Revenue (sales), ex VAT",
+                                       subtitle: "\(sales.noOfActiveRevenueStreams) active revenue streams (\(sales.noOfRevenueStreams) total)",
+                                detail: currency.idd + revenue.formattedGrouped,
+                                subdetail: ""),
+                            //                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
                             
                             ReportLine(title: "Foodcost",
                                        subtitle: "Food and beverages cost (GOGS)",
                                        detail: currency.idd + foodcost.formattedGrouped,
                                        subdetail: (foodcost / revenue).formattedPercentageWithDecimals),
                             
-                            ReportLine(title: "Salary Kitchen",
-                                       subtitle: "(Production cost)",
-                                       
-                                       detail: currency.idd + salaryKitchenPerMonth.formattedGrouped,
-                                       subdetail: (salaryKitchenPerMonth / revenue).formattedPercentageWithDecimals),
-                            
                             ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
                             
                             ReportLine(title: "Gross Profit",
                                        subtitle: "Gross Margin",
-                                       detail: currency.idd + grossProfitPerMonth.formattedGrouped,
-                                       subdetail: (grossProfitPerMonth / revenue).formattedPercentageWithDecimals),
-                            
-                            //                        Divider().opacity(dividerOpacity)
+                                       detail: currency.idd + grossProfitPerMonthDUMMY.formattedGrouped,
+                                       subdetail: (grossProfitPerMonthDUMMY / revenue).formattedPercentageWithDecimals),
                             
                             ReportLine(title: "Operating Expenses",
-                                       subtitle: "Salary minus Kitchen and Occupancy Costs",
-                                       detail: currency.idd + opExForPandL.formattedGrouped,
-                                       subdetail: (opExForPandL / revenue).formattedPercentageWithDecimals),
+                                       subtitle: "Ex D&A",
+                                       detail: currency.idd + opExPerMonth.formattedGrouped,
+                                       subdetail: (opExPerMonth / revenue).formattedPercentageWithDecimals),
                             
-                            //  https://pos.toasttab.com/blog/restaurant-profit-and-loss-statement
-                            ReportLine(title: "Occupancy Costs",
-                                       subtitle: "Fixed overhead (rent, etc.)",
-                                       detail: currency.idd + occupancyCostsPerMonth.formattedGrouped,
-                                       subdetail: (occupancyCostsPerMonth / revenue).formattedPercentageWithDecimals),
+                            //                            //  https://pos.toasttab.com/blog/restaurant-profit-and-loss-statement
+                            //                            ReportLine(title: "Occupancy Costs",
+                            //                                       subtitle: "Fixed overhead (Rent, etc.)",
+                            //                                       detail: currency.idd + occupancyCostsPerMonth.formattedGrouped,
+                            //                                       subdetail: (occupancyCostsPerMonth / revenue).formattedPercentageWithDecimals),
                             
                             
                             ReportLine(title: "Depreciation and Amortization",
@@ -296,7 +288,85 @@ extension Restaurant {
                             ReportLine(title: "Net Profit/Loss",
                                        subtitle: "",
                                        detail: currency.idd + profitPerMonth.formattedGrouped,
-                                       subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals)
+                                       subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals),
+                            ReportLine(title: "",
+                                       subtitle: "Note: All data is ex VAT (\"netto\"). Percentage to Revenue.",
+                                       detail: "",
+                                       subdetail: "")
+            ])
+        } else {
+            return Report(name: "Profit and Loss Statement is not available", description: "No Revenue Streams Yet", lines: [])
+        }
+    }
+    
+    var profitAndLossReportFPC: Report {
+        if revenue > 0 {
+            return Report(name: "P&L (Full Production Cost)",
+                          description: "Salary Kitchen as part of Production Cost, monthly",
+                          lines: [
+                            ReportLine(title: "Revenue (sales), ex VAT",
+                                       subtitle: "\(sales.noOfActiveRevenueStreams) active revenue streams (\(sales.noOfRevenueStreams) total)",
+                                detail: currency.idd + revenue.formattedGrouped,
+                                subdetail: ""),
+                            //                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                            
+                            ReportLine(title: "Foodcost",
+                                       subtitle: "Food and beverages cost (GOGS)",
+                                       detail: currency.idd + foodcost.formattedGrouped,
+                                       subdetail: (foodcost / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "Salary Kitchen",
+                                       subtitle: "(as part of Production cost)",
+                                       
+                                       detail: currency.idd + salaryKitchenPerMonth.formattedGrouped,
+                                       subdetail: (salaryKitchenPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                            
+                            ReportLine(title: "Gross Profit",
+                                       subtitle: "Gross Margin",
+                                       detail: currency.idd + grossFPCProfitPerMonth.formattedGrouped,
+                                       subdetail: (grossFPCProfitPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "Operating Expenses",
+                                       subtitle: "ex Salary Kitchen",
+                                       detail: currency.idd + opExForPandL.formattedGrouped,
+                                       subdetail: (opExForPandL / revenue).formattedPercentageWithDecimals),
+                            
+                            //                            //  https://pos.toasttab.com/blog/restaurant-profit-and-loss-statement
+                            //                            ReportLine(title: "Occupancy Costs",
+                            //                                       subtitle: "Fixed overhead (Rent, etc.)",
+                            //                                       detail: currency.idd + occupancyCostsPerMonth.formattedGrouped,
+                            //                                       subdetail: (occupancyCostsPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            
+                            ReportLine(title: "Depreciation and Amortization",
+                                       subtitle: "Including items with 1 year lifetime",
+                                       detail: currency.idd + depreciationPerMonth.formattedGrouped,
+                                       subdetail: (depreciationPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                            
+                            ReportLine(title: "EBIT",
+                                       subtitle: "Operating Margin",
+                                       detail: currency.idd + ebitPerMonth.formattedGrouped,
+                                       subdetail: (ebitPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "Tax",
+                                       subtitle: "All Corporate Income Taxes",
+                                       detail: currency.idd + taxPerMonth.formattedGrouped,
+                                       subdetail: (taxPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                            
+                            ReportLine(title: "Net Profit/Loss",
+                                       subtitle: "",
+                                       detail: currency.idd + profitPerMonth.formattedGrouped,
+                                       subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals),
+                            ReportLine(title: "",
+                                       subtitle: "Note: All data is ex VAT (\"netto\"). Percentage to Revenue.",
+                                       detail: "",
+                                       subdetail: "")
             ])
         } else {
             return Report(name: "Profit and Loss Statement is not available", description: "No Revenue Streams Yet", lines: [])
