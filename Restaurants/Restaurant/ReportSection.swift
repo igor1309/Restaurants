@@ -14,9 +14,9 @@ struct ReportView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ReportCard(report: report)
+                ReportCard(report: report).padding(.top)
             }
-            .navigationBarTitle(report.name)
+            .navigationBarTitle(Text(report.name), displayMode: report.name.count <= 18 ? .large : .inline)
         }
     }
 }
