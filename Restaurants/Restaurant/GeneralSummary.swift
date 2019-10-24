@@ -16,18 +16,15 @@ struct GeneralSummary: View {
     var body: some View {
         Section(header: Text("General".uppercased()),
                 footer: Text("Tap to view details or edit.")) {
-            Group {
-                Text(restaurant.name)
-                    .foregroundColor(.systemOrange)
-                
-                RestaurantFinanceOneRow(title: "\(restaurant.projectName), \(restaurant.city)",
-                    currency: restaurant.currency,
-                    amount: restaurant.budget,
-                    color: .systemOrange)
-                    .padding(.trailing)
-            }
-            .contentShape(Rectangle())
-            .onTapGesture { self.showModal = true }
+                    
+                    RestaurantFinanceOneRow(title:    restaurant.name,
+                                            currency: restaurant.currency,
+                                            amount:   restaurant.budget,
+                                            color:    .systemOrange,
+                                            icon:     "")
+                        .contentShape(Rectangle())
+                        .padding(.trailing)
+                        .onTapGesture { self.showModal = true }
         }
             
         .sheet(isPresented: $showModal) {
@@ -40,24 +37,14 @@ struct GeneralSummary: View {
 #if DEBUG
 struct GeneralSummary_Previews: PreviewProvider {
     static var previews: some View {
-        
-        return Group {
-            NavigationView {
-                Form {
-                    GeneralSummary()
-                }
-            }
-            
-            NavigationView {
-                Form {
-                    GeneralSummary()
-                        //  .preferredColorScheme(.dark)
-                        .environment(\.sizeCategory, .extraLarge)
-                }
+        NavigationView {
+            Form {
+                GeneralSummary()
             }
         }
-        .environment(\.colorScheme, .dark)
         .environmentObject(UserData())
+        .environment(\.colorScheme, .dark)
+        .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

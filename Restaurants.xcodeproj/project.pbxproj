@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2A1363672361E0600043C4CC /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1363662361E0600043C4CC /* SettingsStore.swift */; };
 		2A136369236208870043C4CC /* ReportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A136368236208870043C4CC /* ReportSection.swift */; };
+		2A9CE9C52362339D000A42B5 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE9C42362339D000A42B5 /* ReportView.swift */; };
+		2A9CE9C723623AB8000A42B5 /* InvestmentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE9C623623AB8000A42B5 /* InvestmentSection.swift */; };
+		2A9CE9C923623B78000A42B5 /* KPISection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE9C823623B78000A42B5 /* KPISection.swift */; };
 		2ACB602623610D4800263A36 /* ReportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602523610D4800263A36 /* ReportCard.swift */; };
 		2ACB602823618C5C00263A36 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602723618C5C00263A36 /* Report.swift */; };
 		2AE4D0F32360ECA0009E72A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F22360ECA0009E72A4 /* AppDelegate.swift */; };
@@ -151,6 +154,9 @@
 /* Begin PBXFileReference section */
 		2A1363662361E0600043C4CC /* SettingsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		2A136368236208870043C4CC /* ReportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSection.swift; sourceTree = "<group>"; };
+		2A9CE9C42362339D000A42B5 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		2A9CE9C623623AB8000A42B5 /* InvestmentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentSection.swift; sourceTree = "<group>"; };
+		2A9CE9C823623B78000A42B5 /* KPISection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPISection.swift; sourceTree = "<group>"; };
 		2ACB602523610D4800263A36 /* ReportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCard.swift; sourceTree = "<group>"; };
 		2ACB602723618C5C00263A36 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		2AE4D0EF2360ECA0009E72A4 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -469,7 +475,10 @@
 				2AE4D13B2360ECD3009E72A4 /* RestaurantDetail.swift */,
 				2AE4D1332360ECD3009E72A4 /* GeneralSummary.swift */,
 				2AE4D1342360ECD3009E72A4 /* FinancialSummary.swift */,
+				2A9CE9C623623AB8000A42B5 /* InvestmentSection.swift */,
+				2A9CE9C823623B78000A42B5 /* KPISection.swift */,
 				2A136368236208870043C4CC /* ReportSection.swift */,
+				2A9CE9C42362339D000A42B5 /* ReportView.swift */,
 				2AE4D1352360ECD3009E72A4 /* RestaurantFinanceOneRow.swift */,
 				2AE4D1362360ECD3009E72A4 /* RestaurantListModal.swift */,
 				2AE4D1372360ECD3009E72A4 /* EditRestaurant.swift */,
@@ -749,11 +758,13 @@
 				2AE4D1DE2360ECD4009E72A4 /* CoverForDayRow.swift in Sources */,
 				2ACB602823618C5C00263A36 /* Report.swift in Sources */,
 				2AE4D0F52360ECA0009E72A4 /* SceneDelegate.swift in Sources */,
+				2A9CE9C723623AB8000A42B5 /* InvestmentSection.swift in Sources */,
 				2AE4D1EA2360ECD4009E72A4 /* UnitEconomics.swift in Sources */,
 				2AE4D2072360ECD4009E72A4 /* CapExBlock.swift in Sources */,
 				2AE4D1A12360ECD4009E72A4 /* SalesCard4.swift in Sources */,
 				2AE4D21E2360ECD4009E72A4 /* SuperTotalRow.swift in Sources */,
 				2AE4D1DB2360ECD4009E72A4 /* OpExItem.swift in Sources */,
+				2A9CE9C923623B78000A42B5 /* KPISection.swift in Sources */,
 				2AE4D1F82360ECD4009E72A4 /* TextFieldWithNameAbove.swift in Sources */,
 				2AE4D1FC2360ECD4009E72A4 /* SaveDoneCancelButtons.swift in Sources */,
 				2AE4D20A2360ECD4009E72A4 /* OpExSampleList.swift in Sources */,
@@ -812,6 +823,7 @@
 				2AE4D1C22360ECD4009E72A4 /* RestaurantListModal.swift in Sources */,
 				2AE4D1E82360ECD4009E72A4 /* PandLRow.swift in Sources */,
 				2AE4D1E62360ECD4009E72A4 /* MealDetail.swift in Sources */,
+				2A9CE9C52362339D000A42B5 /* ReportView.swift in Sources */,
 				2AE4D2112360ECD4009E72A4 /* String+Extensions.swift in Sources */,
 				2AE4D1A82360ECD4009E72A4 /* hScrollingCard.swift in Sources */,
 				2AE4D1D92360ECD4009E72A4 /* CapExItem.swift in Sources */,

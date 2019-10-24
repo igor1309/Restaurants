@@ -17,9 +17,11 @@ struct RestaurantFinanceOneRow : View {
     
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            Image(systemName: icon)
-                .frame(minWidth: 24, alignment: .center)
-                .foregroundColor(color)
+            if icon.isNotEmpty {
+                Image(systemName: icon)
+                    .frame(minWidth: 24, alignment: .center)
+                    .foregroundColor(color)
+            }
             
             VStack(alignment: .leading, spacing: 4) {
                 HStack(alignment: .firstTextBaseline) {

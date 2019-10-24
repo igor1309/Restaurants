@@ -16,20 +16,17 @@ struct FinancialSummary: View {
     var noOfRevenueStreams: Int { Int(userData.restaurant.sales.noOfRevenueStreams) }
     var noOfActiveRevenueStreams: Int { Int(userData.restaurant.sales.noOfActiveRevenueStreams) }
     var opEx: Int { Int(userData.restaurant.opExPerMonth) }
-    var capEx: Int { Int(userData.restaurant.capEx) }
-    var depreciation: Int { Int(userData.restaurant.depreciationPerMonth) }
     
     var body: some View {
-        Group {
-            Section(header: Text("Finance".uppercased()),
-                    footer: Text("Revenue and Expenses per month, CAPEX total.")) {
+            Section(header: Text("Operations".uppercased()),
+                    footer: Text("Revenue and Expenses per month.")) {
                         NavigationLink(destination: MealList()) {
                             RestaurantFinanceOneRow(title: "Revenue",
                                                     subtitle: "\(noOfActiveRevenueStreams) active revenue streams (\(noOfRevenueStreams) total)",
-                                                    currency: currency,
-                                                    amount: Int(revenue),
-                                                    color: .systemGreen,
-                                                    icon: "text.badge.plus") //increase.indent
+                                currency: currency,
+                                amount: Int(revenue),
+                                color: .systemGreen,
+                                icon: "text.badge.plus") //increase.indent
                         }
                         
                         NavigationLink(destination: OpExList()) {
@@ -51,30 +48,6 @@ struct FinancialSummary: View {
                                                 color: .systemTeal,
                                                 icon: "text.badge.minus")
                             .padding(.trailing)
-                        
-                        NavigationLink(destination: CapExList()) {
-                            RestaurantFinanceOneRow(title: "CAPEX, total",
-                                                    subtitle: "Monthly Depreciation \(currency.idd) \(depreciation.formattedGrouped)",
-                                                    currency: currency,
-                                                    amount: capEx,
-                                                    color: .systemYellow,
-                                                    icon: "text.badge.checkmark")
-                        }
-                        
-                        
-                        RestaurantFinanceRow(title: "TO BE DONE Return of Investment", subtitle: "Estimated return of Investment, years", currency: Currency.none, amount: -1)
-            }
-            
-            Section(header: Text("KPI".uppercased())) {
-                NavigationLink(destination: KPIList()) {
-                    
-                    RestaurantFinanceOneRow(title: "KPIs & Milestones",
-                                            currency: .none,
-                                            amount: -1,
-                                            color: .systemPurple,
-                                            icon: "text.badge.star") //star.circle
-                }
-            }
         }
     }
 }

@@ -22,7 +22,11 @@ struct RestaurantDetail : View {
             
             FinancialSummary()
             
+            InvestmentSection ()
+            
             ReportSection()
+            
+            KPISection()
         }
             
         .navigationBarTitle(Text(userData.restaurant.name))
