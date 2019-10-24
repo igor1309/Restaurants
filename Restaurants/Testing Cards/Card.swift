@@ -56,7 +56,7 @@ struct Card<Content: View>: View {
     //    }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .font(.headline)
                 .foregroundColor(.systemTeal)

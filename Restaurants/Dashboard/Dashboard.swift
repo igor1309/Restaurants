@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct Dashboard: View {
-    @State private var selection = 0
+    @EnvironmentObject var settings: SettingsStore
     
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: $settings.selectedTab) {
             
             NavigationView {
                 RestaurantDetail()
@@ -63,7 +63,9 @@ struct Dashboard_Previews: PreviewProvider {
     static var previews: some View {
         Dashboard()
             .environmentObject(UserData())
+            .environmentObject(SettingsStore())
             .environment(\.colorScheme, .dark)
+            .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

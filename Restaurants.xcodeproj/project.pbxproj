@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1363672361E0600043C4CC /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1363662361E0600043C4CC /* SettingsStore.swift */; };
 		2ACB602623610D4800263A36 /* ReportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602523610D4800263A36 /* ReportCard.swift */; };
 		2ACB602823618C5C00263A36 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602723618C5C00263A36 /* Report.swift */; };
 		2AE4D0F32360ECA0009E72A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F22360ECA0009E72A4 /* AppDelegate.swift */; };
@@ -147,6 +148,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A1363662361E0600043C4CC /* SettingsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		2ACB602523610D4800263A36 /* ReportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCard.swift; sourceTree = "<group>"; };
 		2ACB602723618C5C00263A36 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		2AE4D0EF2360ECA0009E72A4 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -481,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				2AE4D1472360ECD3009E72A4 /* UserData.swift */,
+				2A1363662361E0600043C4CC /* SettingsStore.swift */,
 				2AE4D1412360ECD3009E72A4 /* Model.swift */,
 				2AE4D1402360ECD3009E72A4 /* Period.swift */,
 				2AE4D1432360ECD3009E72A4 /* Currency.swift */,
@@ -794,6 +797,7 @@
 				2AE4D1E72360ECD4009E72A4 /* CreateMealModal.swift in Sources */,
 				2AE4D1BA2360ECD4009E72A4 /* KPIList.swift in Sources */,
 				2AE4D1E52360ECD4009E72A4 /* MealListHeader.swift in Sources */,
+				2A1363672361E0600043C4CC /* SettingsStore.swift in Sources */,
 				2AE4D1F52360ECD4009E72A4 /* ForFun.swift in Sources */,
 				2AE4D1DF2360ECD4009E72A4 /* MealRow.swift in Sources */,
 				2AE4D1A22360ECD4009E72A4 /* NoOfCovers.swift in Sources */,

@@ -12,6 +12,7 @@ struct ContentView: View {
     var body: some View {
         Dashboard()
             .environmentObject(UserData())
+            .environmentObject(SettingsStore())
     }
 }
 
@@ -19,5 +20,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(UserData())
+            .environmentObject(SettingsStore())
     }
 }

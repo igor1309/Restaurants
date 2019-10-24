@@ -148,11 +148,13 @@ extension Restaurant {
 
 extension Restaurant {
     var reports: [Report] {
-        [cashFlowReport,
-         profitAndLoss4PartsReport,
+        [
+         cashFlowReport,
          profitAndLossReport,
          profitAndLossExtrasReport,
-         operatingExpensesReport
+         operatingExpensesReport,
+         
+            profitAndLoss4PartsReport
         ]
     }
 }
@@ -183,10 +185,10 @@ extension Restaurant {
     
     var profitAndLoss4PartsReport: Report {
         if revenue > 0 {
-            return Report(name: "P&L: 4 Pieces of the Pie",
-                          description: "Profit and Loss Statement, monthly",
-                          lines: [ReportLine(title: "Revenue (sales)",
-                                             subtitle: "All Revenue Streams",
+            return Report(name: "P&L: \"4 Pieces of the Pie\"",
+                          description: "Simplistic Profit and Loss Statement, monthly",
+                          lines: [ReportLine(title: "Revenue (sales), ex VAT",
+                                             subtitle: "\(sales.noOfActiveRevenueStreams) active revenue streams (\(sales.noOfRevenueStreams) total)",
                                              detail: currency.idd + revenue.formattedGrouped,
                                              subdetail: ""),
                                   ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
@@ -195,17 +197,21 @@ extension Restaurant {
                                              detail: currency.idd + foodcost.formattedGrouped,
                                              subdetail: (foodcost / revenue).formattedPercentageWithDecimals),
                                   ReportLine(title: "Salary",
-                                             subtitle: "Payroll Expenses",
+                                             subtitle: "Payroll Expenses, total",
                                              detail: currency.idd + salaryPerMonth.formattedGrouped,
                                              subdetail: (salaryPerMonth / revenue).formattedPercentageWithDecimals),
-                                  ReportLine(title: "Expenses",
+                                  ReportLine(title: "Expenses, ex Salary",
                                              subtitle: "Rent, Other OpEx, D&A, Tax",
                                              detail: currency.idd + expenses.formattedGrouped,
                                              subdetail: (expenses / revenue).formattedPercentageWithDecimals),
                                   ReportLine(title: "Net Profit/Loss",
                                              subtitle: "",
                                              detail: currency.idd + profitPerMonth.formattedGrouped,
-                                             subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals)
+                                             subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "",
+                                             subtitle: "Note: All data is ex VAT (\"netto\")",
+                                             detail: "",
+                                             subdetail: "")
             ])
         } else {
             return Report(name: "P&L: 4 Pieces of the Pie report is not available", description: "No Revenue Streams Yet", lines: [])

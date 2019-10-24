@@ -16,10 +16,11 @@ struct PandLRow: View {
     var highlight: Bool = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 3) {
+        VStack(alignment: .leading, spacing: 2) {
             HStack(alignment: .firstTextBaseline) {
-                Text(title)
+                Text(title.isEmpty ? "——————" : title)
                     .font(.subheadline)
+                    .opacity(title.isEmpty ? 0.2 : 1.0)
                 
                 Spacer()
                 
@@ -64,6 +65,12 @@ struct PandLRow_Previews: PreviewProvider {
                          subtitle: "Subtitle",
                          detail: "detail",
                          subdetail: "subdetail",
+                         highlight: false)
+
+                PandLRow(title: "",
+                         subtitle: "",
+                         detail: "",
+                         subdetail: "",
                          highlight: false)
 
                 PandLRow(title: "Title and no Subtitle",
