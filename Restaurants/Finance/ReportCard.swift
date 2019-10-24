@@ -32,7 +32,10 @@ struct ReportCard: View {
 struct ReportCard_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ReportCard(report: UserData().restaurant.cashFlowReport)
+            VStack {
+                ReportCard(report: UserData().restaurant.cashFlowReport)
+                Spacer()
+            }
         }
         .environmentObject(UserData())
         .environment(\.colorScheme, .dark)

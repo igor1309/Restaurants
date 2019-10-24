@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2ACB602623610D4800263A36 /* ReportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602523610D4800263A36 /* ReportCard.swift */; };
+		2ACB602823618C5C00263A36 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602723618C5C00263A36 /* Report.swift */; };
 		2AE4D0F32360ECA0009E72A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F22360ECA0009E72A4 /* AppDelegate.swift */; };
 		2AE4D0F52360ECA0009E72A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F42360ECA0009E72A4 /* SceneDelegate.swift */; };
 		2AE4D0F72360ECA0009E72A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F62360ECA0009E72A4 /* ContentView.swift */; };
@@ -15,7 +16,6 @@
 		2AE4D0FC2360ECA1009E72A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AE4D0FB2360ECA1009E72A4 /* Preview Assets.xcassets */; };
 		2AE4D0FF2360ECA1009E72A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AE4D0FD2360ECA1009E72A4 /* LaunchScreen.storyboard */; };
 		2AE4D19C2360ECD4009E72A4 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1072360ECD3009E72A4 /* Dashboard.swift */; };
-		2AE4D19D2360ECD4009E72A4 /* OpExCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1082360ECD3009E72A4 /* OpExCard.swift */; };
 		2AE4D19E2360ECD4009E72A4 /* BusinessListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D10A2360ECD3009E72A4 /* BusinessListModal.swift */; };
 		2AE4D19F2360ECD4009E72A4 /* SalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D10C2360ECD3009E72A4 /* SalesView.swift */; };
 		2AE4D1A02360ECD4009E72A4 /* SalesRowWithBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D10D2360ECD3009E72A4 /* SalesRowWithBar.swift */; };
@@ -93,12 +93,8 @@
 		2AE4D1E82360ECD4009E72A4 /* PandLRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D15F2360ECD4009E72A4 /* PandLRow.swift */; };
 		2AE4D1E92360ECD4009E72A4 /* MarginsAndCostsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1602360ECD4009E72A4 /* MarginsAndCostsCard.swift */; };
 		2AE4D1EA2360ECD4009E72A4 /* UnitEconomics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1612360ECD4009E72A4 /* UnitEconomics.swift */; };
-		2AE4D1EB2360ECD4009E72A4 /* CashFlowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1622360ECD4009E72A4 /* CashFlowCard.swift */; };
 		2AE4D1EC2360ECD4009E72A4 /* MarginsPerCoverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1632360ECD4009E72A4 /* MarginsPerCoverCard.swift */; };
 		2AE4D1ED2360ECD4009E72A4 /* Finance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1642360ECD4009E72A4 /* Finance.swift */; };
-		2AE4D1EE2360ECD4009E72A4 /* ProfitAndLossStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1652360ECD4009E72A4 /* ProfitAndLossStatement.swift */; };
-		2AE4D1EF2360ECD4009E72A4 /* ProfitAndLossExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1662360ECD4009E72A4 /* ProfitAndLossExtras.swift */; };
-		2AE4D1F02360ECD4009E72A4 /* ProfitAndLoss4Parts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1672360ECD4009E72A4 /* ProfitAndLoss4Parts.swift */; };
 		2AE4D1F12360ECD4009E72A4 /* SeatingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1692360ECD4009E72A4 /* SeatingRow.swift */; };
 		2AE4D1F22360ECD4009E72A4 /* SeatingTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D16A2360ECD4009E72A4 /* SeatingTrunk.swift */; };
 		2AE4D1F32360ECD4009E72A4 /* SeatingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D16B2360ECD4009E72A4 /* SeatingCard.swift */; };
@@ -152,6 +148,7 @@
 
 /* Begin PBXFileReference section */
 		2ACB602523610D4800263A36 /* ReportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCard.swift; sourceTree = "<group>"; };
+		2ACB602723618C5C00263A36 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		2AE4D0EF2360ECA0009E72A4 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE4D0F22360ECA0009E72A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AE4D0F42360ECA0009E72A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,7 +158,6 @@
 		2AE4D0FE2360ECA1009E72A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AE4D1002360ECA1009E72A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AE4D1072360ECD3009E72A4 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
-		2AE4D1082360ECD3009E72A4 /* OpExCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpExCard.swift; sourceTree = "<group>"; };
 		2AE4D10A2360ECD3009E72A4 /* BusinessListModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessListModal.swift; sourceTree = "<group>"; };
 		2AE4D10C2360ECD3009E72A4 /* SalesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesView.swift; sourceTree = "<group>"; };
 		2AE4D10D2360ECD3009E72A4 /* SalesRowWithBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesRowWithBar.swift; sourceTree = "<group>"; };
@@ -239,12 +235,8 @@
 		2AE4D15F2360ECD4009E72A4 /* PandLRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PandLRow.swift; sourceTree = "<group>"; };
 		2AE4D1602360ECD4009E72A4 /* MarginsAndCostsCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarginsAndCostsCard.swift; sourceTree = "<group>"; };
 		2AE4D1612360ECD4009E72A4 /* UnitEconomics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitEconomics.swift; sourceTree = "<group>"; };
-		2AE4D1622360ECD4009E72A4 /* CashFlowCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CashFlowCard.swift; sourceTree = "<group>"; };
 		2AE4D1632360ECD4009E72A4 /* MarginsPerCoverCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarginsPerCoverCard.swift; sourceTree = "<group>"; };
 		2AE4D1642360ECD4009E72A4 /* Finance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finance.swift; sourceTree = "<group>"; };
-		2AE4D1652360ECD4009E72A4 /* ProfitAndLossStatement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfitAndLossStatement.swift; sourceTree = "<group>"; };
-		2AE4D1662360ECD4009E72A4 /* ProfitAndLossExtras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfitAndLossExtras.swift; sourceTree = "<group>"; };
-		2AE4D1672360ECD4009E72A4 /* ProfitAndLoss4Parts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfitAndLoss4Parts.swift; sourceTree = "<group>"; };
 		2AE4D1692360ECD4009E72A4 /* SeatingRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatingRow.swift; sourceTree = "<group>"; };
 		2AE4D16A2360ECD4009E72A4 /* SeatingTrunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatingTrunk.swift; sourceTree = "<group>"; };
 		2AE4D16B2360ECD4009E72A4 /* SeatingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatingCard.swift; sourceTree = "<group>"; };
@@ -506,6 +498,7 @@
 				2AE4D14E2360ECD3009E72A4 /* CapExItem.swift */,
 				2AE4D1482360ECD3009E72A4 /* KPI.swift */,
 				2AE4D1452360ECD3009E72A4 /* KPIItem.swift */,
+				2ACB602723618C5C00263A36 /* Report.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -534,11 +527,6 @@
 			children = (
 				2AE4D1642360ECD4009E72A4 /* Finance.swift */,
 				2ACB602523610D4800263A36 /* ReportCard.swift */,
-				2AE4D1622360ECD4009E72A4 /* CashFlowCard.swift */,
-				2AE4D1672360ECD4009E72A4 /* ProfitAndLoss4Parts.swift */,
-				2AE4D1652360ECD4009E72A4 /* ProfitAndLossStatement.swift */,
-				2AE4D1662360ECD4009E72A4 /* ProfitAndLossExtras.swift */,
-				2AE4D1082360ECD3009E72A4 /* OpExCard.swift */,
 				2AE4D15F2360ECD4009E72A4 /* PandLRow.swift */,
 			);
 			path = Finance;
@@ -741,10 +729,8 @@
 				2AE4D1D32360ECD4009E72A4 /* KPI.swift in Sources */,
 				2AE4D20C2360ECD4009E72A4 /* OpExDetail.swift in Sources */,
 				2AE4D1A52360ECD4009E72A4 /* HorizontalBar.swift in Sources */,
-				2AE4D1EB2360ECD4009E72A4 /* CashFlowCard.swift in Sources */,
 				2AE4D2182360ECD4009E72A4 /* TotalRow.swift in Sources */,
 				2AE4D1F12360ECD4009E72A4 /* SeatingRow.swift in Sources */,
-				2AE4D1F02360ECD4009E72A4 /* ProfitAndLoss4Parts.swift in Sources */,
 				2AE4D1CC2360ECD4009E72A4 /* Model.swift in Sources */,
 				2AE4D1C42360ECD4009E72A4 /* CreateRestaurantWithOptions.swift in Sources */,
 				2AE4D2142360ECD4009E72A4 /* Format+Extensions.swift in Sources */,
@@ -754,6 +740,7 @@
 				2AE4D1A92360ECD4009E72A4 /* Card.swift in Sources */,
 				2AE4D1A62360ECD4009E72A4 /* HorizontalBars2.swift in Sources */,
 				2AE4D1DE2360ECD4009E72A4 /* CoverForDayRow.swift in Sources */,
+				2ACB602823618C5C00263A36 /* Report.swift in Sources */,
 				2AE4D0F52360ECA0009E72A4 /* SceneDelegate.swift in Sources */,
 				2AE4D1EA2360ECD4009E72A4 /* UnitEconomics.swift in Sources */,
 				2AE4D2072360ECD4009E72A4 /* CapExBlock.swift in Sources */,
@@ -791,7 +778,6 @@
 				2AE4D2202360F50C009E72A4 /* Target.swift in Sources */,
 				2AE4D1F62360ECD4009E72A4 /* ForFunWithNavigationLink.swift in Sources */,
 				2AE4D1B42360ECD4009E72A4 /* sampleKPI.swift in Sources */,
-				2AE4D19D2360ECD4009E72A4 /* OpExCard.swift in Sources */,
 				2AE4D1E42360ECD4009E72A4 /* MealEditor.swift in Sources */,
 				2AE4D1D52360ECD4009E72A4 /* Capex.swift in Sources */,
 				2AE4D1D82360ECD4009E72A4 /* Status.swift in Sources */,
@@ -804,7 +790,6 @@
 				2AE4D21C2360ECD4009E72A4 /* StreamRow.swift in Sources */,
 				2AE4D19E2360ECD4009E72A4 /* BusinessListModal.swift in Sources */,
 				2AE4D1E92360ECD4009E72A4 /* MarginsAndCostsCard.swift in Sources */,
-				2AE4D1EF2360ECD4009E72A4 /* ProfitAndLossExtras.swift in Sources */,
 				2AE4D1FB2360ECD4009E72A4 /* SectionDeleteThis.swift in Sources */,
 				2AE4D1E72360ECD4009E72A4 /* CreateMealModal.swift in Sources */,
 				2AE4D1BA2360ECD4009E72A4 /* KPIList.swift in Sources */,
@@ -827,7 +812,6 @@
 				2AE4D1D72360ECD4009E72A4 /* Sales.swift in Sources */,
 				2AE4D1F92360ECD4009E72A4 /* CurrencySegmentedControl.swift in Sources */,
 				2AE4D1AC2360ECD4009E72A4 /* numberButton.swift in Sources */,
-				2AE4D1EE2360ECD4009E72A4 /* ProfitAndLossStatement.swift in Sources */,
 				2AE4D1BC2360ECD4009E72A4 /* KPIRow.swift in Sources */,
 				2AE4D1C82360ECD4009E72A4 /* RestaurantFinanceRow.swift in Sources */,
 				2AE4D20D2360ECD4009E72A4 /* CreateOpExModal.swift in Sources */,

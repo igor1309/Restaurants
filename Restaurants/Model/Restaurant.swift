@@ -147,33 +147,213 @@ extension Restaurant {
 }
 
 extension Restaurant {
-    var cashFlowReport: Report {
-        Report(name: "Cash Flow", description: "and Investment", lines: [
-            FinLine(title: "Investment",
-                    subtitle: "CapEx, total",
-                    detail: currency.idd + investment.formattedGrouped,
-                    subdetail: ""),
-            FinLine(title: "Cash Flow Est., per year",
-                    subtitle: "Net Profit + D&A, per month",
-                    detail: currency.idd + (cashFlowEstimatePerMonth * 12).formattedGrouped,
-                    subdetail: currency.idd + cashFlowEstimatePerMonth.formattedGrouped),
-            FinLine(title: cashFlowEstimatePerMonth > 0 ? "Investment Return in" : "Cash Flow is negative, no Investment return",
-                    subtitle: "Estimate",
-                    detail: cashFlowEstimatePerMonth > 0 ? (investment / cashFlowEstimatePerMonth).rounded(.up).formattedGrouped + " months" : "",
-                    subdetail: "")
-        ])
+    var reports: [Report] {
+        [
+            //         cashFlowReport,
+            //         profitAndLoss4PartsReport,
+            //         profitAndLossReport,
+            //         profitAndLossExtrasReport,
+            operatingExpensesReport
+        ]
     }
 }
 
-struct Report {
-    var name: String
-    var description: String
-    var lines: [FinLine]
-}
-
-struct FinLine: Hashable {
-    var title: String
-    var subtitle: String
-    var detail: String
-    var subdetail: String
+extension Restaurant {
+    var revenue: Double { sales.revenuePerMonth }
+    var foodcost: Double { sales.foodcostPerMonth }
+    var expenses: Double { opExPerMonth - salaryPerMonth + depreciationPerMonth + taxPerMonth }
+    var opExForPandL: Double { opExPerMonth - salaryKitchenPerMonth - occupancyCostsPerMonth }
+    
+    var cashFlowReport: Report {
+        Report(name: "Cash Flow",
+               description: "and Investment",
+               lines: [ReportLine(title: "Investment",
+                                  subtitle: "CAPEX and Working Capital, total",
+                                  detail: currency.idd + investment.formattedGrouped,
+                                  subdetail: ""),
+                       ReportLine(title: "Cash Flow Est., per year",
+                                  subtitle: "Net Profit + D&A, per month",
+                                  detail: currency.idd + (cashFlowEstimatePerMonth * 12).formattedGrouped,
+                                  subdetail: currency.idd + cashFlowEstimatePerMonth.formattedGrouped),
+                       ReportLine(title: cashFlowEstimatePerMonth > 0 ? "Investment Return in" : "Cash Flow is negative, no Investment return",
+                                  subtitle: "",
+                                  detail: cashFlowEstimatePerMonth > 0 ? (investment / cashFlowEstimatePerMonth).rounded(.up).formattedGrouped + " months" : "",
+                                  subdetail: "")
+        ])
+    }
+    
+    var profitAndLoss4PartsReport: Report {
+        if revenue > 0 {
+            return Report(name: "P&L: 4 Pieces of the Pie",
+                          description: "Profit and Loss Statement, monthly",
+                          lines: [ReportLine(title: "Revenue (sales)",
+                                             subtitle: "All Revenue Streams",
+                                             detail: currency.idd + revenue.formattedGrouped,
+                                             subdetail: ""),
+                                  ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                                  ReportLine(title: "Foodcost",
+                                             subtitle: "Food and beverages cost (GOGS)",
+                                             detail: currency.idd + foodcost.formattedGrouped,
+                                             subdetail: (foodcost / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Salary",
+                                             subtitle: "Payroll Expenses",
+                                             detail: currency.idd + salaryPerMonth.formattedGrouped,
+                                             subdetail: (salaryPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Expenses",
+                                             subtitle: "Rent, Other OpEx, D&A, Tax",
+                                             detail: currency.idd + expenses.formattedGrouped,
+                                             subdetail: (expenses / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Net Profit/Loss",
+                                             subtitle: "",
+                                             detail: currency.idd + profitPerMonth.formattedGrouped,
+                                             subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals)
+            ])
+        } else {
+            return Report(name: "P&L: 4 Pieces of the Pie report is not available", description: "No Revenue Streams Yet", lines: [])
+        }
+    }
+    
+    var profitAndLossReport: Report {
+        if revenue > 0 {
+            return Report(name: "P&L",
+                          description: "Profit and Loss Statement, monthly",
+                          lines: [
+                            
+                            
+                            ReportLine(title: "Revenue (sales)",
+                                       subtitle: "All Revenue Streams",
+                                       detail: currency.idd + revenue.formattedGrouped,
+                                       subdetail: ""),
+                            
+                            ReportLine(title: "Foodcost",
+                                       subtitle: "Food and beverages cost (GOGS)",
+                                       detail: currency.idd + foodcost.formattedGrouped,
+                                       subdetail: (foodcost / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "Salary Kitchen",
+                                       subtitle: "(Production cost)",
+                                       
+                                       detail: currency.idd + salaryKitchenPerMonth.formattedGrouped,
+                                       subdetail: (salaryKitchenPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                            
+                            ReportLine(title: "Gross Profit",
+                                       subtitle: "Gross Margin",
+                                       detail: currency.idd + grossProfitPerMonth.formattedGrouped,
+                                       subdetail: (grossProfitPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            //                        Divider().opacity(dividerOpacity)
+                            
+                            ReportLine(title: "Operating Expenses",
+                                       subtitle: "Salary minus Kitchen and Occupancy Costs",
+                                       detail: currency.idd + opExForPandL.formattedGrouped,
+                                       subdetail: (opExForPandL / revenue).formattedPercentageWithDecimals),
+                            
+                            //  https://pos.toasttab.com/blog/restaurant-profit-and-loss-statement
+                            ReportLine(title: "Occupancy Costs",
+                                       subtitle: "Fixed overhead (rent, etc.)",
+                                       detail: currency.idd + occupancyCostsPerMonth.formattedGrouped,
+                                       subdetail: (occupancyCostsPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            
+                            ReportLine(title: "Depreciation and Amortization",
+                                       subtitle: "Including items with 1 year lifetime",
+                                       detail: currency.idd + depreciationPerMonth.formattedGrouped,
+                                       subdetail: (depreciationPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                            
+                            ReportLine(title: "EBIT",
+                                       subtitle: "Operating Margin",
+                                       detail: currency.idd + ebitPerMonth.formattedGrouped,
+                                       subdetail: (ebitPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "Tax",
+                                       subtitle: "All Corporate Income Taxes",
+                                       detail: currency.idd + taxPerMonth.formattedGrouped,
+                                       subdetail: (taxPerMonth / revenue).formattedPercentageWithDecimals),
+                            
+                            ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                            
+                            ReportLine(title: "Net Profit/Loss",
+                                       subtitle: "",
+                                       detail: currency.idd + profitPerMonth.formattedGrouped,
+                                       subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals)
+            ])
+        } else {
+            return Report(name: "Profit and Loss Statement is not available", description: "No Revenue Streams Yet", lines: [])
+        }
+    }
+    
+    var profitAndLossExtrasReport: Report {
+        if revenue > 0 {
+            return Report(name: "P&L Ratios",
+                          description: "",
+                          lines: [ReportLine(title: "Prime Cost",
+                                             subtitle: "Foodcost + Salary",
+                                             detail: currency.idd + (foodcost + salaryPerMonth).formattedGrouped,
+                                             subdetail: ((foodcost + salaryPerMonth) / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "EBITDA",
+                                             subtitle: "",
+                                             detail: currency.idd + ebitPerMonth.formattedGrouped,
+                                             subdetail: (ebitPerMonth / revenue).formattedPercentageWithDecimals)
+                            
+            ])
+        } else {
+            return Report(name: "Profit and Loss Extras report is not available", description: "No Revenue Streams Yet", lines: [])
+        }
+    }
+    
+    var operatingExpensesReport: Report {
+        if revenue > 0 {
+            return Report(name: "Operating Expenses",
+                          description: "OpEx, monthly. Ratio to Revenue",
+                          lines: [ReportLine(title: "Total OpEx",
+                                             subtitle: "Operating Expenses",
+                                             detail: currency.idd + opExPerMonth.formattedGrouped,
+                                             subdetail: (opExPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Salary",
+                                             subtitle: "All Payroll Expenses",
+                                             detail: currency.idd + salaryPerMonth.formattedGrouped,
+                                             subdetail: (salaryPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Occupancy Costs",
+                                             subtitle: "Rent, etc",
+                                             detail: currency.idd + occupancyCostsPerMonth.formattedGrouped,
+                                             subdetail: (occupancyCostsPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Utilities",
+                                             subtitle: "Utilities",
+                                             detail: currency.idd + utilitiesPerMonth.formattedGrouped,
+                                             subdetail: (utilitiesPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Marketing",
+                                             subtitle: "Marketing",
+                                             detail: currency.idd + marketingPerMonth.formattedGrouped,
+                                             subdetail: (marketingPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Other OpEx",
+                                             subtitle: "OtherOpEx",
+                                             detail: currency.idd + otherOpExPerMonth.formattedGrouped,
+                                             subdetail: (otherOpExPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                                  ReportLine(title: "non Salary OpEx",
+                                             subtitle: "OpEx without Payroll Expenses",
+                                             detail: currency.idd + (opExPerMonth - salaryPerMonth).formattedGrouped,
+                                             subdetail: ((opExPerMonth - salaryPerMonth) / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                                  ReportLine(title: "Salary",
+                                             subtitle: "Incl Payroll Expenses to OpEx",
+                                             detail: currency.idd + salaryPerMonth.formattedGrouped,
+                                             subdetail: (salaryPerMonth / opExPerMonth).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Salary Kitchen",
+                                             subtitle: "to Salary Total",
+                                             detail: currency.idd + salaryKitchenPerMonth.formattedGrouped,
+                                             subdetail: (salaryKitchenPerMonth / salaryPerMonth).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Salary ex Kitchen",
+                                             subtitle: "to Salary Total",
+                                             detail: currency.idd + salaryExKitchenPerMonth.formattedGrouped,
+                                             subdetail: (salaryExKitchenPerMonth / salaryPerMonth).formattedPercentageWithDecimals)
+            ])
+        } else {
+            return Report(name: "Operating Expenses report is not available", description: "No Revenue Streams Yet", lines: [])
+        }
+    }
 }

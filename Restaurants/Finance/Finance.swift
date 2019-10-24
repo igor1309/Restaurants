@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct Finance: View {
+    @EnvironmentObject var userData: UserData
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
                     
-                    CashFlowCard()
-                    
-                    ProfitAndLoss4Parts()
-                    
-                    ProfitAndLossStatement()
-                    
-                    ProfitAndLossExtras()
-                    
-                    OpExCard()
+                    ForEach(userData.restaurant.reports, id: \.self) {
+                        report in
+                        ReportCard(report: report)
+                    }
                     
                     NavigationLink(destination: MealList()) {
                         Text("Revenue Streams")
@@ -39,9 +35,9 @@ struct Finance: View {
 struct Finance_Previews: PreviewProvider {
     static var previews: some View {
         Finance()
+            .environmentObject(UserData())
             .environment(\.sizeCategory, .extraLarge)
             .preferredColorScheme(.dark)
-            .environmentObject(UserData())
     }
 }
 #endif

@@ -28,19 +28,21 @@ struct PandLRow: View {
                     .fontWeight(highlight ? .regular : .light)
             }
             
-            HStack(alignment: .firstTextBaseline) {
-                Text(subtitle)
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .lineSpacing(0)
-                
-                Spacer()
-                
-                Text(subdetail)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                //  .underline(highlight, color: myColor)
+            if subtitle.isNotEmpty || subdetail.isNotEmpty {
+                HStack(alignment: .firstTextBaseline) {
+                    Text(subtitle)
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .lineSpacing(0)
+                    
+                    Spacer()
+                    
+                    Text(subdetail)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    //  .underline(highlight, color: myColor)
+                }
             }
         }
         .padding(.bottom, 3)
@@ -51,19 +53,26 @@ struct PandLRow: View {
 struct PandLRow_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            Group {
-                PandLRow(title: "Title",
+            List {
+                PandLRow(title: "Title, highlight: true",
                          subtitle: "Subtitle",
                          detail: "detail",
                          subdetail: "subdetail",
                          highlight: true)
                 
-                PandLRow(title: "Title",
+                PandLRow(title: "Title: highlight: false",
                          subtitle: "Subtitle",
                          detail: "detail",
                          subdetail: "subdetail",
                          highlight: false)
+
+                PandLRow(title: "Title and no Subtitle",
+                         subtitle: "",
+                         detail: "no subdetail",
+                         subdetail: "",
+                         highlight: false)
             }
+            .listStyle(GroupedListStyle())
         }
         .environment(\.colorScheme, .dark)
         .environment(\.sizeCategory, .extraLarge)
