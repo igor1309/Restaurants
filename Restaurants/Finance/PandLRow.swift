@@ -13,7 +13,7 @@ struct PandLRow: View {
     var subtitle: String = ""
     var detail: String
     var subdetail: String = ""
-    var highlight: Bool = false
+//    var highlight: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -26,7 +26,7 @@ struct PandLRow: View {
                 
                 Text(detail)
                     .font(.footnote)
-                    .fontWeight(highlight ? .regular : .light)
+//                    .fontWeight(highlight ? .regular : .light)
             }
             
             if subtitle.isNotEmpty || subdetail.isNotEmpty {
@@ -58,26 +58,34 @@ struct PandLRow_Previews: PreviewProvider {
                 PandLRow(title: "Title, highlight: true",
                          subtitle: "Subtitle",
                          detail: "detail",
-                         subdetail: "subdetail",
-                         highlight: true)
+                         subdetail: "subdetail"
+//                    ,
+//                         highlight: true
+                )
                 
                 PandLRow(title: "Title: highlight: false",
                          subtitle: "Subtitle",
                          detail: "detail",
-                         subdetail: "subdetail",
-                         highlight: false)
+                         subdetail: "subdetail"
+//                    ,
+//                         highlight: false
+                )
 
                 PandLRow(title: "",
                          subtitle: "",
                          detail: "",
-                         subdetail: "",
-                         highlight: false)
+                         subdetail: ""
+//                    ,
+//                         highlight: false
+                )
 
                 PandLRow(title: "Title and no Subtitle",
                          subtitle: "",
                          detail: "no subdetail",
-                         subdetail: "",
-                         highlight: false)
+                         subdetail: ""
+//                    ,
+//                         highlight: false
+                )
             }
             .listStyle(GroupedListStyle())
         }

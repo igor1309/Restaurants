@@ -143,18 +143,24 @@ extension Restaurant {
     
     var profitPerMonth: Double { ebitPerMonth - taxPerMonth }
     
-    var cashFlowEstimatePerMonth: Double { profitPerMonth + depreciationPerMonth }
+    var cashEarningsPerMonth: Double { profitPerMonth + depreciationPerMonth }
+}
+
+extension Restaurant {
+    var profitPerYear: Double { profitPerMonth * 12 }
+    var cashEarningsPerYear: Double { cashEarningsPerMonth * 12 }
 }
 
 extension Restaurant {
     var reports: [Report] {
         [
-         cashFlowReport,
          profitAndLossReport,
          profitAndLossExtrasReport,
          operatingExpensesReport,
          
-            profitAndLoss4PartsReport
+         
+         cashEarningsReport,
+         profitAndLoss4PartsReport
         ]
     }
 }
@@ -165,20 +171,26 @@ extension Restaurant {
     var expenses: Double { opExPerMonth - salaryPerMonth + depreciationPerMonth + taxPerMonth }
     var opExForPandL: Double { opExPerMonth - salaryKitchenPerMonth - occupancyCostsPerMonth }
     
-    var cashFlowReport: Report {
-        Report(name: "Cash Flow",
-               description: "and Investment",
+    var cashEarningsReport: Report {
+        Report(name: "Investment and Cash Flow",
+               description: "Owner's perspective",
                lines: [ReportLine(title: "Investment",
                                   subtitle: "CAPEX and Working Capital, total",
                                   detail: currency.idd + investment.formattedGrouped,
                                   subdetail: ""),
-                       ReportLine(title: "Cash Flow Est., per year",
+                       ReportLine(title: "Net Profit, per year",
+                                  subtitle: "per month",
+                                  detail: currency.idd +    profitPerYear.formattedGrouped,
+                                  subdetail: currency.idd + profitPerMonth.formattedGrouped),
+                       ReportLine(title: "Cash Earnings, per year",
                                   subtitle: "Net Profit + D&A, per month",
-                                  detail: currency.idd + (cashFlowEstimatePerMonth * 12).formattedGrouped,
-                                  subdetail: currency.idd + cashFlowEstimatePerMonth.formattedGrouped),
-                       ReportLine(title: cashFlowEstimatePerMonth > 0 ? "Investment Return in" : "Cash Flow is negative, no Investment return",
-                                  subtitle: "",
-                                  detail: cashFlowEstimatePerMonth > 0 ? (investment / cashFlowEstimatePerMonth).rounded(.up).formattedGrouped + " months" : "",
+                                  detail: currency.idd +    cashEarningsPerYear.formattedGrouped,
+                                  subdetail: currency.idd + cashEarningsPerMonth.formattedGrouped),
+                       ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                       
+                       ReportLine(title: cashEarningsPerMonth > 0 ? "Investment Return in" : "No data or negative Cash Earnings",
+                                  subtitle: cashEarningsPerMonth > 0 ? "Estimation of the project ramp up period of 6 months is added." : "",
+                                  detail: cashEarningsPerMonth > 0 ? (investment / cashEarningsPerMonth).rounded(.up).formattedGrouped + "-" + (investment / cashEarningsPerMonth + 6).rounded(.up).formattedGrouped + " months" : "",
                                   subdetail: "")
         ])
     }

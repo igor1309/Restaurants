@@ -36,8 +36,8 @@ struct Finance_Previews: PreviewProvider {
     static var previews: some View {
         Finance()
             .environmentObject(UserData())
-            .environment(\.sizeCategory, .extraLarge)
             .preferredColorScheme(.dark)
+            .environment(\.sizeCategory, .extraLarge)
     }
 }
 #endif

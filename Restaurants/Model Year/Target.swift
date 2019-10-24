@@ -32,10 +32,10 @@ struct Target: View {
                      detail: currency.idd + (restaurant.profitPerMonth * 12).formattedGrouped,
                      subdetail: currency.idd + restaurant.profitPerMonth.formattedGrouped)
             
-            PandLRow(title: "Cash Flow Estimate",
+            PandLRow(title: "Cash Earnings",
                      subtitle: "per month",
-                     detail: currency.idd + (restaurant.cashFlowEstimatePerMonth * 12).formattedGrouped,
-                     subdetail: currency.idd + restaurant.cashFlowEstimatePerMonth.formattedGrouped)
+                     detail: currency.idd + restaurant.cashEarningsPerYear.formattedGrouped,
+                     subdetail: currency.idd + restaurant.cashEarningsPerMonth.formattedGrouped)
         }
     }
 }

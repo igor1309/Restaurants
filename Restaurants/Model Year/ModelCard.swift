@@ -37,20 +37,17 @@ struct ModelCard: View {
             PandLRow(title: "Discounted Revenue",
                      subtitle: "per Month",
                      detail: currency.idd + (discountedRevenue * 12).formattedGrouped,
-                     subdetail: currency.idd + discountedRevenue.formattedGrouped,
-                     highlight: false)
+                     subdetail: currency.idd + discountedRevenue.formattedGrouped)
             
             PandLRow(title: "Profit/Loss",
                      subtitle: "per Month",
                      detail: currency.idd + (discountedProfit * 12).formattedGrouped,
-                     subdetail: currency.idd + discountedProfit.formattedGrouped,
-                     highlight: false)
+                     subdetail: currency.idd + discountedProfit.formattedGrouped)
             
             PandLRow(title: "Cash Flow Est.",
                      subtitle: "per Month",
                      detail: currency.idd + (cashFlowEstimate * 12).formattedGrouped,
-                     subdetail: currency.idd + cashFlowEstimate.formattedGrouped,
-                     highlight: false)
+                     subdetail: currency.idd + cashFlowEstimate.formattedGrouped)
         }
     }
 }

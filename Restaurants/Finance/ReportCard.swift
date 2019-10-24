@@ -33,7 +33,7 @@ struct ReportCard_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             VStack {
-                ReportCard(report: UserData().restaurant.cashFlowReport)
+                ReportCard(report: UserData().restaurant.cashEarningsReport)
                 Spacer()
             }
         }
