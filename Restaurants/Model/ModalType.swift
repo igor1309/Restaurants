@@ -8,4 +8,4 @@
 
 import Foundation
 
-enum ModalType { case options, new, payroll, business, restaurantList, createRestaurant, createRestaurantOptions, createMeal, createMealOptions, createOpEx, createCapExOptions, createCapEx, createOpExOptions, createKPI, createKPIOptions, settings, detail }
+enum ModalType { case options, new, payroll, business, restaurantList, createRestaurant, createRestaurantOptions, createMeal, createMealOptions, createOpEx, createCapExOptions, createCapEx, createOpExOptions, createKPI, createKPIOptions, settings, detail, report }

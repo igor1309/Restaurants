@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//
+
 struct RestaurantDetail : View {
     @EnvironmentObject private var userData: UserData
     
@@ -21,6 +21,8 @@ struct RestaurantDetail : View {
             GeneralSummary()
             
             FinancialSummary()
+            
+            ReportSection()
         }
             
         .navigationBarTitle(Text(userData.restaurant.name))
@@ -37,57 +39,57 @@ struct RestaurantDetail : View {
             },
             trailing: HStack {
                 TrailingButtonSFSymbol(systemName: "plus.square") {
-                self.showCreateActionSheetFromSample = true }
-            .actionSheet(isPresented: $showCreateActionSheetFromSample) {
-                ActionSheet(
-                    title: Text("Create"),
-                    message: Text("from Samples"),
-                    buttons: [
-                        .cancel {},
-                        .default(Text("New Revenue Stream")) {
-                            self.modal = .createMealOptions
-                            self.showModal = true },
-                        .default(Text("New Expense (OpEx)")) {
-                            self.modal = .createOpExOptions
-                            self.showModal = true },
-                        .destructive(Text("TBD New Payroll Item")),
-                        .default(Text("New CAPEX")) {
-                            self.modal = .createCapExOptions
-                            self.showModal = true },
-                        .default(Text("New KPI or Forcast")) {
-                            self.modal = .createKPIOptions
-                            self.showModal = true },
-                        .default(Text("New Restaurant")) {
-                            self.modal = .createRestaurantOptions
-                            self.showModal = true }
-                    ]
-                )}
-            
-            TrailingButtonSFSymbol(systemName: "plus") {
-                self.showCreateActionSheet = true }
-            .actionSheet(isPresented: $showCreateActionSheet) {
-                ActionSheet(
-                    title: Text("Create"),
-                    message: Text("more data about Restaurant"),
-                    buttons: [
-                        .cancel {},
-                        .default(Text("Create Revenue Stream")) {
-                            self.modal = .createMeal
-                            self.showModal = true },
-                        .default(Text("Create Expense (OpEx)")) {
-                            self.modal = .createOpEx
-                            self.showModal = true },
-                        .default(Text("Create CAPEX")) {
-                            self.modal = .createCapEx
-                            self.showModal = true },
-                        .default(Text("Create KPI or Forcast")) {
-                            self.modal = .createKPI
-                            self.showModal = true },
-                        .default(Text("Create Restaurant")) {
-                            self.modal = .createRestaurant
-                            self.showModal = true },
-                    ]
-                )}
+                    self.showCreateActionSheetFromSample = true }
+                    .actionSheet(isPresented: $showCreateActionSheetFromSample) {
+                        ActionSheet(
+                            title: Text("Create"),
+                            message: Text("from Samples"),
+                            buttons: [
+                                .cancel {},
+                                .default(Text("New Revenue Stream")) {
+                                    self.modal = .createMealOptions
+                                    self.showModal = true },
+                                .default(Text("New Expense (OpEx)")) {
+                                    self.modal = .createOpExOptions
+                                    self.showModal = true },
+                                .destructive(Text("TBD New Payroll Item")),
+                                .default(Text("New CAPEX")) {
+                                    self.modal = .createCapExOptions
+                                    self.showModal = true },
+                                .default(Text("New KPI or Forcast")) {
+                                    self.modal = .createKPIOptions
+                                    self.showModal = true },
+                                .default(Text("New Restaurant")) {
+                                    self.modal = .createRestaurantOptions
+                                    self.showModal = true }
+                            ]
+                        )}
+                
+                TrailingButtonSFSymbol(systemName: "plus") {
+                    self.showCreateActionSheet = true }
+                    .actionSheet(isPresented: $showCreateActionSheet) {
+                        ActionSheet(
+                            title: Text("Create"),
+                            message: Text("more data about Restaurant"),
+                            buttons: [
+                                .cancel {},
+                                .default(Text("Create Revenue Stream")) {
+                                    self.modal = .createMeal
+                                    self.showModal = true },
+                                .default(Text("Create Expense (OpEx)")) {
+                                    self.modal = .createOpEx
+                                    self.showModal = true },
+                                .default(Text("Create CAPEX")) {
+                                    self.modal = .createCapEx
+                                    self.showModal = true },
+                                .default(Text("Create KPI or Forcast")) {
+                                    self.modal = .createKPI
+                                    self.showModal = true },
+                                .default(Text("Create Restaurant")) {
+                                    self.modal = .createRestaurant
+                                    self.showModal = true },
+                            ]
+                        )}
             }
         )
             

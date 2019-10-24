@@ -141,26 +141,26 @@ extension Restaurant {
     var taxPerMonth: Double { if ebitPerMonth > 0 { return ebitPerMonth * taxRate } else { return 0 } }
     
     var profitPerMonth: Double { ebitPerMonth - taxPerMonth }
+    var profitPerYear: Double { profitPerMonth * 12 }
     
     var cashEarningsPerMonth: Double { profitPerMonth + depreciationPerMonth }
-}
-
-extension Restaurant {
-    var profitPerYear: Double { profitPerMonth * 12 }
     var cashEarningsPerYear: Double { cashEarningsPerMonth * 12 }
 }
 
 extension Restaurant {
+    var primeCostPerMonthPercentage: Double {
+        if revenue > 0 { return primeCostPerMonth / revenue } else { return 0 }
+    }
+}
+
+extension Restaurant {
     var reports: [Report] {
-        [
-            profitAndLossExtrasReport,
-            operatingExpensesReport,
-            
-            
-            cashEarningsReport,
-            profitAndLoss4PartsReport,
-            profitAndLossReport,
-            profitAndLossReportFPC
+        [cashEarningsReport,
+         profitAndLoss4PartsReport,
+         profitAndLossReport,
+         profitAndLossReportFPC,
+         profitAndLossExtrasReport,
+         operatingExpensesReport
         ]
     }
 }
@@ -189,7 +189,7 @@ extension Restaurant {
                        ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
                        
                        ReportLine(title: cashEarningsPerMonth > 0 ? "Investment Return in" : "No data or negative Cash Earnings",
-                                  subtitle: cashEarningsPerMonth > 0 ? "Estimation of the project ramp up period of 6 months is added." : "",
+                                  subtitle: cashEarningsPerMonth > 0 ? "Estimation of the project ramp up period of 6 months is added to the second number." : "",
                                   detail: cashEarningsPerMonth > 0 ? (investment / cashEarningsPerMonth).rounded(.up).formattedGrouped + "-" + (investment / cashEarningsPerMonth + 6).rounded(.up).formattedGrouped + " months" : "",
                                   subdetail: "")
         ])
@@ -376,19 +376,31 @@ extension Restaurant {
     var profitAndLossExtrasReport: Report {
         if revenue > 0 {
             return Report(name: "P&L Ratios",
-                          description: "",
+                          description: "Selected ratios to Revenue, monthly",
                           lines: [ReportLine(title: "Prime Cost",
                                              subtitle: "Foodcost + Salary",
-                                             detail: currency.idd + (foodcost + salaryPerMonth).formattedGrouped,
-                                             subdetail: ((foodcost + salaryPerMonth) / revenue).formattedPercentageWithDecimals),
+                                             detail: currency.idd + primeCostPerMonth.formattedGrouped,
+                                             subdetail: primeCostPerMonthPercentage.formattedPercentageWithDecimals),
                                   ReportLine(title: "EBITDA",
                                              subtitle: "",
+                                             detail: currency.idd + ebitdaPerMonth.formattedGrouped,
+                                             subdetail: (ebitdaPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "EBIT",
+                                             subtitle: "",
                                              detail: currency.idd + ebitPerMonth.formattedGrouped,
-                                             subdetail: (ebitPerMonth / revenue).formattedPercentageWithDecimals)
+                                             subdetail: (ebitPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Cash Earnings",
+                                             subtitle: "",
+                                             detail: currency.idd + cashEarningsPerMonth.formattedGrouped,
+                                             subdetail: (cashEarningsPerMonth / revenue).formattedPercentageWithDecimals),
+                                  ReportLine(title: "Net Profit",
+                                             subtitle: "",
+                                             detail: currency.idd + profitPerMonth.formattedGrouped,
+                                             subdetail: (profitPerMonth / revenue).formattedPercentageWithDecimals)
                             
             ])
         } else {
-            return Report(name: "Profit and Loss Extras report is not available", description: "No Revenue Streams Yet", lines: [])
+            return Report(name: "Report is not available", description: "No Revenue Streams Yet", lines: [])
         }
     }
     
@@ -400,12 +412,13 @@ extension Restaurant {
                                              subtitle: "Operating Expenses",
                                              detail: currency.idd + opExPerMonth.formattedGrouped,
                                              subdetail: (opExPerMonth / revenue).formattedPercentageWithDecimals),
-                                  ReportLine(title: "Salary",
-                                             subtitle: "All Payroll Expenses",
+                                  ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
+                                  ReportLine(title: "Payroll",
+                                             subtitle: "All Salary Expenses",
                                              detail: currency.idd + salaryPerMonth.formattedGrouped,
                                              subdetail: (salaryPerMonth / revenue).formattedPercentageWithDecimals),
-                                  ReportLine(title: "Occupancy Costs",
-                                             subtitle: "Rent, etc",
+                                  ReportLine(title: "Rent",
+                                             subtitle: "",
                                              detail: currency.idd + occupancyCostsPerMonth.formattedGrouped,
                                              subdetail: (occupancyCostsPerMonth / revenue).formattedPercentageWithDecimals),
                                   ReportLine(title: "Utilities",
@@ -421,23 +434,27 @@ extension Restaurant {
                                              detail: currency.idd + otherOpExPerMonth.formattedGrouped,
                                              subdetail: (otherOpExPerMonth / revenue).formattedPercentageWithDecimals),
                                   ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
-                                  ReportLine(title: "non Salary OpEx",
-                                             subtitle: "OpEx without Payroll Expenses",
+                                  ReportLine(title: "Non-Payroll OpEx",
+                                             subtitle: "Operating Expenses without Salary",
                                              detail: currency.idd + (opExPerMonth - salaryPerMonth).formattedGrouped,
                                              subdetail: ((opExPerMonth - salaryPerMonth) / revenue).formattedPercentageWithDecimals),
                                   ReportLine(title: "", subtitle: "", detail: "", subdetail: ""),
-                                  ReportLine(title: "Salary",
-                                             subtitle: "Incl Payroll Expenses to OpEx",
+                                  ReportLine(title: "Payroll",
+                                             subtitle: "Total Salary Expenses to OpEx",
                                              detail: currency.idd + salaryPerMonth.formattedGrouped,
                                              subdetail: (salaryPerMonth / opExPerMonth).formattedPercentageWithDecimals),
-                                  ReportLine(title: "Salary Kitchen",
-                                             subtitle: "to Salary Total",
+                                  ReportLine(title: "Payroll Kitchen",
+                                             subtitle: "to Payroll Total",
                                              detail: currency.idd + salaryKitchenPerMonth.formattedGrouped,
                                              subdetail: (salaryKitchenPerMonth / salaryPerMonth).formattedPercentageWithDecimals),
-                                  ReportLine(title: "Salary ex Kitchen",
-                                             subtitle: "to Salary Total",
+                                  ReportLine(title: "Payroll ex Kitchen",
+                                             subtitle: "to Payroll Total",
                                              detail: currency.idd + salaryExKitchenPerMonth.formattedGrouped,
-                                             subdetail: (salaryExKitchenPerMonth / salaryPerMonth).formattedPercentageWithDecimals)
+                                             subdetail: (salaryExKitchenPerMonth / salaryPerMonth).formattedPercentageWithDecimals),
+                                  ReportLine(title: "",
+                                             subtitle: "Note: All data is ex VAT (\"netto\").",
+                                             detail: "",
+                                             subdetail: "")
             ])
         } else {
             return Report(name: "Operating Expenses report is not available", description: "No Revenue Streams Yet", lines: [])

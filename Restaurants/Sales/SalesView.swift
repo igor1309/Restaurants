@@ -53,7 +53,7 @@ struct SalesView: View {
             )
                 
                 .actionSheet(isPresented: $showPeriodSelector) {
-                    ActionSheet(title: Text("Period"),
+                    ActionSheet(title: Text("Period".uppercased()),
                                 message: Text("Select period for sales report"),
                                 buttons: [
                                     .cancel(),

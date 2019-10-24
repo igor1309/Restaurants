@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A1363672361E0600043C4CC /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1363662361E0600043C4CC /* SettingsStore.swift */; };
+		2A136369236208870043C4CC /* ReportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A136368236208870043C4CC /* ReportSection.swift */; };
 		2ACB602623610D4800263A36 /* ReportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602523610D4800263A36 /* ReportCard.swift */; };
 		2ACB602823618C5C00263A36 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACB602723618C5C00263A36 /* Report.swift */; };
 		2AE4D0F32360ECA0009E72A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D0F22360ECA0009E72A4 /* AppDelegate.swift */; };
@@ -149,6 +150,7 @@
 
 /* Begin PBXFileReference section */
 		2A1363662361E0600043C4CC /* SettingsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		2A136368236208870043C4CC /* ReportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSection.swift; sourceTree = "<group>"; };
 		2ACB602523610D4800263A36 /* ReportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCard.swift; sourceTree = "<group>"; };
 		2ACB602723618C5C00263A36 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		2AE4D0EF2360ECA0009E72A4 /* Restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurants.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -464,15 +466,16 @@
 		2AE4D1322360ECD3009E72A4 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				2AE4D13B2360ECD3009E72A4 /* RestaurantDetail.swift */,
 				2AE4D1332360ECD3009E72A4 /* GeneralSummary.swift */,
 				2AE4D1342360ECD3009E72A4 /* FinancialSummary.swift */,
+				2A136368236208870043C4CC /* ReportSection.swift */,
 				2AE4D1352360ECD3009E72A4 /* RestaurantFinanceOneRow.swift */,
 				2AE4D1362360ECD3009E72A4 /* RestaurantListModal.swift */,
 				2AE4D1372360ECD3009E72A4 /* EditRestaurant.swift */,
 				2AE4D1382360ECD3009E72A4 /* CreateRestaurantWithOptions.swift */,
 				2AE4D1392360ECD3009E72A4 /* RestaurantEditor.swift */,
 				2AE4D13A2360ECD3009E72A4 /* CreateRestaurantModal.swift */,
-				2AE4D13B2360ECD3009E72A4 /* RestaurantDetail.swift */,
 				2AE4D13C2360ECD3009E72A4 /* RestaurantFinanceRow.swift */,
 				2AE4D13D2360ECD3009E72A4 /* RestaurantRow.swift */,
 			);
@@ -725,6 +728,7 @@
 				2AE4D1B12360ECD4009E72A4 /* Data.swift in Sources */,
 				2AE4D2192360ECD4009E72A4 /* BasicRow.swift in Sources */,
 				2AE4D1AE2360ECD4009E72A4 /* EnterAmountInt.swift in Sources */,
+				2A136369236208870043C4CC /* ReportSection.swift in Sources */,
 				2AE4D1AF2360ECD4009E72A4 /* EnterAmount.swift in Sources */,
 				2AE4D1AD2360ECD4009E72A4 /* EnterAmountHead.swift in Sources */,
 				2AE4D1BF2360ECD4009E72A4 /* GeneralSummary.swift in Sources */,
