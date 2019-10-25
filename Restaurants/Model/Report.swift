@@ -14,6 +14,14 @@ struct Report: Hashable {
     var lines: [ReportLine]
 }
 
+extension Report {
+    init() {
+        self.name = ""
+        self.description = ""
+        self.lines = []
+    }
+}
+
 struct ReportLine: Hashable {
     var title: String
     var subtitle: String

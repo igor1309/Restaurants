@@ -10,26 +10,32 @@ import SwiftUI
 
 struct ReportSection: View {
     @EnvironmentObject var userData: UserData
-    @State private var isHighlighted = false
     @State private var showActionReport = false
     @State private var showModal = false
     @State private var modal: ModalType = .report
-    @State private var report: Report = Report(name: "", description: "", lines: [])
+    @State private var report = Report()
+    @State private var showHint = false
+    @State private var animationAmount = 0.0
     
     var body: some View {
         Section(header: Text("Reports".uppercased()),
                 footer: Text("Hold for contex menu.")) {
-                    RestaurantFinanceOneRow(title: isHighlighted ? "Hold for contex menu" : "Reports", subtitle: "P&L, Cash Flow, Expenses", currency: .none, color: isHighlighted ? .red : .systemOrange, icon: "text.append")
+                    RestaurantFinanceOneRow(title: showHint ? "Hold for contex menu" : "Reports",
+                                            subtitle: "P&L, Cash Flow, Expenses",
+                                            currency: .none,
+                                            color: showHint ? .red : .systemOrange,
+                                            icon: showHint ? "hand.point.right" : "text.append")
                         .contentShape(Rectangle())
                         .onTapGesture {
                             let generator = UIImpactFeedbackGenerator(style: .medium)
                             generator.impactOccurred()
                             withAnimation {
-                                self.isHighlighted = true
+                                self.showHint = true
+                                self.animationAmount += 720
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    self.isHighlighted = false
-                                }
-                            }}
+                                    self.showHint = false
+                                }}}
+                        .rotation3DEffect(.degrees(animationAmount), axis: (x: 1, y: 0, z: 0))
                         .contextMenu {
                             ForEach(userData.restaurant.reports, id: \.self) { report in
                                 Button(action: {
