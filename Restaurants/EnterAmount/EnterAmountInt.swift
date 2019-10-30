@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct EnterAmountInt: View {
     @Environment(\.presentationMode) var presentation

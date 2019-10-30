@@ -8,7 +8,7 @@
 
 import Foundation
 
-let sampleRestaurants = [Restaurant(name: "TTB Charlottenburg",
+let sampleRestaurants = [Restaurant(name: "To The Bone Charlottenburg",
                                     projectName: "Giacomo",
                                     type: RestaurantType.fullService,
                                     city: "Berlin",

@@ -9,22 +9,15 @@
 import SwiftUI
 
 struct KPISection: View {
-    //    @EnvironmentObject private var userData: UserData
-    //
-    //    var currency: Currency { userData.restaurant.currency }
-    //    var capEx: Int { Int(userData.restaurant.capEx) }
-    //    var depreciation: Int { Int(userData.restaurant.depreciationPerMonth) }
-    
     var body: some View {
         Section(header: Text("KPI".uppercased())) {
             
             NavigationLink(destination: KPIList()) {
-                
-                RestaurantFinanceOneRow(title: "KPIs & Milestones",
-                                        currency: .none,
-                                        amount: -1,
-                                        color: .systemPurple,
-                                        icon: "text.badge.star")
+                RowIconAmount(title: "KPIs & Milestones",
+                              currency: .none,
+                              amount: -1,
+                              color: .systemPurple,
+                              icon: "text.badge.star")
             }
         }
     }

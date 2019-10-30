@@ -17,11 +17,10 @@ struct GeneralSummary: View {
         Section(header: Text("General".uppercased()),
                 footer: Text("Tap to view details or edit.")) {
                     
-                    RestaurantFinanceOneRow(title:    restaurant.name,
-                                            currency: restaurant.currency,
-                                            amount:   restaurant.budget,
-                                            color:    .systemOrange,
-                                            icon:     "")
+                    RowIconAmount(title:    restaurant.name,
+                                  currency: restaurant.currency,
+                                  amount:   -1,
+                                  color:    .systemOrange)
                         .contentShape(Rectangle())
                         .padding(.trailing)
                         .onTapGesture { self.showModal = true }

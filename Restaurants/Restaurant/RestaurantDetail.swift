@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct RestaurantDetail : View {
     @EnvironmentObject private var userData: UserData
@@ -33,16 +34,16 @@ struct RestaurantDetail : View {
             
         .navigationBarItems(
             leading: HStack {
-                LeadingButtonSFSymbol(systemName: "list.bullet") {
+                LeadingButtonSFSymbol("list.bullet") {
                     self.modal = .business
                     self.showModal = true }
-                LeadingButtonSFSymbol(systemName: "list.dash") {
+                LeadingButtonSFSymbol("list.dash") {
                     self.modal = .restaurantList
                     self.showModal = true }
                     .opacity(0.7)
             },
             trailing: HStack {
-                TrailingButtonSFSymbol(systemName: "plus.square") {
+                TrailingButtonSFSymbol("plus.square") {
                     self.showCreateActionSheetFromSample = true }
                     .actionSheet(isPresented: $showCreateActionSheetFromSample) {
                         ActionSheet(
@@ -69,7 +70,7 @@ struct RestaurantDetail : View {
                             ]
                         )}
                 
-                TrailingButtonSFSymbol(systemName: "plus") {
+                TrailingButtonSFSymbol("plus") {
                     self.showCreateActionSheet = true }
                     .actionSheet(isPresented: $showCreateActionSheet) {
                         ActionSheet(

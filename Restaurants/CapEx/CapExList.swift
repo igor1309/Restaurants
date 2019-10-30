@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct CapExList: View {
     @EnvironmentObject private var userData: UserData

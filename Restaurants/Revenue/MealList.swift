@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct MealList: View {
-    @EnvironmentObject private var userData: UserData
+    @EnvironmentObject var userData: UserData
     @State private var showModal = false
     @State private var modal: ModalType = .options
     

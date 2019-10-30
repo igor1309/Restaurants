@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct RestaurantRow : View {
     var restaurant: Restaurant

@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2A1363672361E0600043C4CC /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1363662361E0600043C4CC /* SettingsStore.swift */; };
 		2A136369236208870043C4CC /* ReportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A136368236208870043C4CC /* ReportSection.swift */; };
+		2A7FA1372369D803008E8687 /* SwiftPI in Frameworks */ = {isa = PBXBuildFile; productRef = 2A7FA1362369D803008E8687 /* SwiftPI */; };
 		2A9CE9C52362339D000A42B5 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE9C42362339D000A42B5 /* ReportView.swift */; };
 		2A9CE9C723623AB8000A42B5 /* InvestmentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE9C623623AB8000A42B5 /* InvestmentSection.swift */; };
 		2A9CE9C923623B78000A42B5 /* KPISection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9CE9C823623B78000A42B5 /* KPISection.swift */; };
@@ -56,7 +57,7 @@
 		2AE4D1BE2360ECD4009E72A4 /* CreateKPIModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1312360ECD3009E72A4 /* CreateKPIModal.swift */; };
 		2AE4D1BF2360ECD4009E72A4 /* GeneralSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1332360ECD3009E72A4 /* GeneralSummary.swift */; };
 		2AE4D1C02360ECD4009E72A4 /* FinancialSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1342360ECD3009E72A4 /* FinancialSummary.swift */; };
-		2AE4D1C12360ECD4009E72A4 /* RestaurantFinanceOneRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1352360ECD3009E72A4 /* RestaurantFinanceOneRow.swift */; };
+		2AE4D1C12360ECD4009E72A4 /* RowIconAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1352360ECD3009E72A4 /* RowIconAmount.swift */; };
 		2AE4D1C22360ECD4009E72A4 /* RestaurantListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1362360ECD3009E72A4 /* RestaurantListModal.swift */; };
 		2AE4D1C32360ECD4009E72A4 /* EditRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1372360ECD3009E72A4 /* EditRestaurant.swift */; };
 		2AE4D1C42360ECD4009E72A4 /* CreateRestaurantWithOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1382360ECD3009E72A4 /* CreateRestaurantWithOptions.swift */; };
@@ -103,7 +104,6 @@
 		2AE4D1F12360ECD4009E72A4 /* SeatingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1692360ECD4009E72A4 /* SeatingRow.swift */; };
 		2AE4D1F22360ECD4009E72A4 /* SeatingTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D16A2360ECD4009E72A4 /* SeatingTrunk.swift */; };
 		2AE4D1F32360ECD4009E72A4 /* SeatingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D16B2360ECD4009E72A4 /* SeatingCard.swift */; };
-		2AE4D1F42360ECD4009E72A4 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D16D2360ECD4009E72A4 /* Buttons.swift */; };
 		2AE4D1F52360ECD4009E72A4 /* ForFun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D16E2360ECD4009E72A4 /* ForFun.swift */; };
 		2AE4D1F62360ECD4009E72A4 /* ForFunWithNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D16F2360ECD4009E72A4 /* ForFunWithNavigationLink.swift */; };
 		2AE4D1F72360ECD4009E72A4 /* TextFieldWithNameAndCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1702360ECD4009E72A4 /* TextFieldWithNameAndCompletion.swift */; };
@@ -131,14 +131,6 @@
 		2AE4D20D2360ECD4009E72A4 /* CreateOpExModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1882360ECD4009E72A4 /* CreateOpExModal.swift */; };
 		2AE4D20E2360ECD4009E72A4 /* OpExEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1892360ECD4009E72A4 /* OpExEditor.swift */; };
 		2AE4D20F2360ECD4009E72A4 /* OpExRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D18A2360ECD4009E72A4 /* OpExRow.swift */; };
-		2AE4D2102360ECD4009E72A4 /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D18C2360ECD4009E72A4 /* ExtensionColor.swift */; };
-		2AE4D2112360ECD4009E72A4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D18D2360ECD4009E72A4 /* String+Extensions.swift */; };
-		2AE4D2122360ECD4009E72A4 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D18E2360ECD4009E72A4 /* Collection+Extension.swift */; };
-		2AE4D2132360ECD4009E72A4 /* Extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D18F2360ECD4009E72A4 /* Extension+Array.swift */; };
-		2AE4D2142360ECD4009E72A4 /* Format+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1902360ECD4009E72A4 /* Format+Extensions.swift */; };
-		2AE4D2152360ECD4009E72A4 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1912360ECD4009E72A4 /* Font+Extension.swift */; };
-		2AE4D2162360ECD4009E72A4 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1922360ECD4009E72A4 /* Color+Extensions.swift */; };
-		2AE4D2172360ECD4009E72A4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1932360ECD4009E72A4 /* Date+Extensions.swift */; };
 		2AE4D2182360ECD4009E72A4 /* TotalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1952360ECD4009E72A4 /* TotalRow.swift */; };
 		2AE4D2192360ECD4009E72A4 /* BasicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1962360ECD4009E72A4 /* BasicRow.swift */; };
 		2AE4D21A2360ECD4009E72A4 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4D1972360ECD4009E72A4 /* ListRow.swift */; };
@@ -154,6 +146,7 @@
 /* Begin PBXFileReference section */
 		2A1363662361E0600043C4CC /* SettingsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		2A136368236208870043C4CC /* ReportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSection.swift; sourceTree = "<group>"; };
+		2A7FA1342369D7F7008E8687 /* SwiftPI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftPI; path = ../SwiftPI; sourceTree = "<group>"; };
 		2A9CE9C42362339D000A42B5 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		2A9CE9C623623AB8000A42B5 /* InvestmentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentSection.swift; sourceTree = "<group>"; };
 		2A9CE9C823623B78000A42B5 /* KPISection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPISection.swift; sourceTree = "<group>"; };
@@ -203,7 +196,7 @@
 		2AE4D1312360ECD3009E72A4 /* CreateKPIModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKPIModal.swift; sourceTree = "<group>"; };
 		2AE4D1332360ECD3009E72A4 /* GeneralSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSummary.swift; sourceTree = "<group>"; };
 		2AE4D1342360ECD3009E72A4 /* FinancialSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancialSummary.swift; sourceTree = "<group>"; };
-		2AE4D1352360ECD3009E72A4 /* RestaurantFinanceOneRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantFinanceOneRow.swift; sourceTree = "<group>"; };
+		2AE4D1352360ECD3009E72A4 /* RowIconAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowIconAmount.swift; sourceTree = "<group>"; };
 		2AE4D1362360ECD3009E72A4 /* RestaurantListModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantListModal.swift; sourceTree = "<group>"; };
 		2AE4D1372360ECD3009E72A4 /* EditRestaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRestaurant.swift; sourceTree = "<group>"; };
 		2AE4D1382360ECD3009E72A4 /* CreateRestaurantWithOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRestaurantWithOptions.swift; sourceTree = "<group>"; };
@@ -250,7 +243,6 @@
 		2AE4D1692360ECD4009E72A4 /* SeatingRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatingRow.swift; sourceTree = "<group>"; };
 		2AE4D16A2360ECD4009E72A4 /* SeatingTrunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatingTrunk.swift; sourceTree = "<group>"; };
 		2AE4D16B2360ECD4009E72A4 /* SeatingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatingCard.swift; sourceTree = "<group>"; };
-		2AE4D16D2360ECD4009E72A4 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		2AE4D16E2360ECD4009E72A4 /* ForFun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForFun.swift; sourceTree = "<group>"; };
 		2AE4D16F2360ECD4009E72A4 /* ForFunWithNavigationLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForFunWithNavigationLink.swift; sourceTree = "<group>"; };
 		2AE4D1702360ECD4009E72A4 /* TextFieldWithNameAndCompletion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldWithNameAndCompletion.swift; sourceTree = "<group>"; };
@@ -278,14 +270,6 @@
 		2AE4D1882360ECD4009E72A4 /* CreateOpExModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOpExModal.swift; sourceTree = "<group>"; };
 		2AE4D1892360ECD4009E72A4 /* OpExEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpExEditor.swift; sourceTree = "<group>"; };
 		2AE4D18A2360ECD4009E72A4 /* OpExRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpExRow.swift; sourceTree = "<group>"; };
-		2AE4D18C2360ECD4009E72A4 /* ExtensionColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
-		2AE4D18D2360ECD4009E72A4 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		2AE4D18E2360ECD4009E72A4 /* Collection+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
-		2AE4D18F2360ECD4009E72A4 /* Extension+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Array.swift"; sourceTree = "<group>"; };
-		2AE4D1902360ECD4009E72A4 /* Format+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Format+Extensions.swift"; sourceTree = "<group>"; };
-		2AE4D1912360ECD4009E72A4 /* Font+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
-		2AE4D1922360ECD4009E72A4 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		2AE4D1932360ECD4009E72A4 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		2AE4D1952360ECD4009E72A4 /* TotalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalRow.swift; sourceTree = "<group>"; };
 		2AE4D1962360ECD4009E72A4 /* BasicRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRow.swift; sourceTree = "<group>"; };
 		2AE4D1972360ECD4009E72A4 /* ListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
@@ -303,17 +287,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A7FA1372369D803008E8687 /* SwiftPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A7FA1352369D803008E8687 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2AE4D0E62360ECA0009E72A4 = {
 			isa = PBXGroup;
 			children = (
+				2A7FA1342369D7F7008E8687 /* SwiftPI */,
 				2AE4D0F12360ECA0009E72A4 /* Restaurants */,
 				2AE4D0F02360ECA0009E72A4 /* Products */,
+				2A7FA1352369D803008E8687 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,7 +328,6 @@
 				2AE4D1092360ECD3009E72A4 /* Business */,
 				2AE4D1062360ECD3009E72A4 /* Dashboard */,
 				2AE4D11C2360ECD3009E72A4 /* EnterAmount */,
-				2AE4D18B2360ECD4009E72A4 /* Extensions */,
 				2AE4D1942360ECD4009E72A4 /* Rows and Items */,
 				2AE4D16C2360ECD4009E72A4 /* Supporting Views */,
 				2AE4D1112360ECD3009E72A4 /* Testing Bars */,
@@ -479,7 +472,7 @@
 				2A9CE9C823623B78000A42B5 /* KPISection.swift */,
 				2A136368236208870043C4CC /* ReportSection.swift */,
 				2A9CE9C42362339D000A42B5 /* ReportView.swift */,
-				2AE4D1352360ECD3009E72A4 /* RestaurantFinanceOneRow.swift */,
+				2AE4D1352360ECD3009E72A4 /* RowIconAmount.swift */,
 				2AE4D1362360ECD3009E72A4 /* RestaurantListModal.swift */,
 				2AE4D1372360ECD3009E72A4 /* EditRestaurant.swift */,
 				2AE4D1382360ECD3009E72A4 /* CreateRestaurantWithOptions.swift */,
@@ -524,14 +517,14 @@
 				2AE4D1522360ECD3009E72A4 /* MealSampleRow.swift */,
 				2AE4D1532360ECD3009E72A4 /* MealSampleList.swift */,
 				2AE4D1542360ECD3009E72A4 /* CoverForDayRow.swift */,
-				2AE4D1552360ECD3009E72A4 /* MealRow.swift */,
-				2AE4D1562360ECD3009E72A4 /* MealEditorSummarySection.swift */,
 				2AE4D1572360ECD3009E72A4 /* MealList.swift */,
-				2AE4D1582360ECD3009E72A4 /* MealEditorNoOfCovers.swift */,
-				2AE4D1592360ECD4009E72A4 /* MealEditorCover.swift */,
-				2AE4D15A2360ECD4009E72A4 /* MealEditor.swift */,
-				2AE4D15B2360ECD4009E72A4 /* MealListHeader.swift */,
+				2AE4D1552360ECD3009E72A4 /* MealRow.swift */,
 				2AE4D15C2360ECD4009E72A4 /* MealDetail.swift */,
+				2AE4D15A2360ECD4009E72A4 /* MealEditor.swift */,
+				2AE4D1562360ECD3009E72A4 /* MealEditorSummarySection.swift */,
+				2AE4D1592360ECD4009E72A4 /* MealEditorCover.swift */,
+				2AE4D1582360ECD3009E72A4 /* MealEditorNoOfCovers.swift */,
+				2AE4D15B2360ECD4009E72A4 /* MealListHeader.swift */,
 				2AE4D15D2360ECD4009E72A4 /* CreateMealModal.swift */,
 			);
 			path = Revenue;
@@ -560,7 +553,6 @@
 		2AE4D16C2360ECD4009E72A4 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
-				2AE4D16D2360ECD4009E72A4 /* Buttons.swift */,
 				2AE4D16E2360ECD4009E72A4 /* ForFun.swift */,
 				2AE4D16F2360ECD4009E72A4 /* ForFunWithNavigationLink.swift */,
 				2AE4D1702360ECD4009E72A4 /* TextFieldWithNameAndCompletion.swift */,
@@ -579,10 +571,10 @@
 		2AE4D1792360ECD4009E72A4 /* CapEx */ = {
 			isa = PBXGroup;
 			children = (
-				2AE4D17A2360ECD4009E72A4 /* CapExRow.swift */,
 				2AE4D17B2360ECD4009E72A4 /* CapExList.swift */,
-				2AE4D17C2360ECD4009E72A4 /* CapExEditor.swift */,
+				2AE4D17A2360ECD4009E72A4 /* CapExRow.swift */,
 				2AE4D17D2360ECD4009E72A4 /* CapExDetail.swift */,
+				2AE4D17C2360ECD4009E72A4 /* CapExEditor.swift */,
 				2AE4D17E2360ECD4009E72A4 /* CapExSampleRow.swift */,
 				2AE4D17F2360ECD4009E72A4 /* CreateCapExModal.swift */,
 				2AE4D1802360ECD4009E72A4 /* CapExSampleList.swift */,
@@ -604,21 +596,6 @@
 				2AE4D18A2360ECD4009E72A4 /* OpExRow.swift */,
 			);
 			path = OpEx;
-			sourceTree = "<group>";
-		};
-		2AE4D18B2360ECD4009E72A4 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2AE4D18C2360ECD4009E72A4 /* ExtensionColor.swift */,
-				2AE4D18D2360ECD4009E72A4 /* String+Extensions.swift */,
-				2AE4D18E2360ECD4009E72A4 /* Collection+Extension.swift */,
-				2AE4D18F2360ECD4009E72A4 /* Extension+Array.swift */,
-				2AE4D1902360ECD4009E72A4 /* Format+Extensions.swift */,
-				2AE4D1912360ECD4009E72A4 /* Font+Extension.swift */,
-				2AE4D1922360ECD4009E72A4 /* Color+Extensions.swift */,
-				2AE4D1932360ECD4009E72A4 /* Date+Extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2AE4D1942360ECD4009E72A4 /* Rows and Items */ = {
@@ -651,6 +628,9 @@
 			dependencies = (
 			);
 			name = Restaurants;
+			packageProductDependencies = (
+				2A7FA1362369D803008E8687 /* SwiftPI */,
+			);
 			productName = Restaurants;
 			productReference = 2AE4D0EF2360ECA0009E72A4 /* Restaurants.app */;
 			productType = "com.apple.product-type.application";
@@ -706,7 +686,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AE4D2172360ECD4009E72A4 /* Date+Extensions.swift in Sources */,
 				2AE4D1A32360ECD4009E72A4 /* SalesRow.swift in Sources */,
 				2AE4D1B82360ECD4009E72A4 /* KPIDetail.swift in Sources */,
 				2AE4D1E02360ECD4009E72A4 /* MealEditorSummarySection.swift in Sources */,
@@ -718,9 +697,6 @@
 				2AE4D1ED2360ECD4009E72A4 /* Finance.swift in Sources */,
 				2AE4D1A42360ECD4009E72A4 /* HorizontalBars.swift in Sources */,
 				2AE4D1D42360ECD4009E72A4 /* RestaurantType.swift in Sources */,
-				2AE4D2162360ECD4009E72A4 /* Color+Extensions.swift in Sources */,
-				2AE4D2152360ECD4009E72A4 /* Font+Extension.swift in Sources */,
-				2AE4D1F42360ECD4009E72A4 /* Buttons.swift in Sources */,
 				2AE4D1FF2360ECD4009E72A4 /* TwoRectangles.swift in Sources */,
 				2AE4D19F2360ECD4009E72A4 /* SalesView.swift in Sources */,
 				2AE4D20E2360ECD4009E72A4 /* OpExEditor.swift in Sources */,
@@ -749,7 +725,6 @@
 				2AE4D1F12360ECD4009E72A4 /* SeatingRow.swift in Sources */,
 				2AE4D1CC2360ECD4009E72A4 /* Model.swift in Sources */,
 				2AE4D1C42360ECD4009E72A4 /* CreateRestaurantWithOptions.swift in Sources */,
-				2AE4D2142360ECD4009E72A4 /* Format+Extensions.swift in Sources */,
 				2AE4D1BE2360ECD4009E72A4 /* CreateKPIModal.swift in Sources */,
 				2AE4D1D22360ECD4009E72A4 /* UserData.swift in Sources */,
 				2AE4D1FA2360ECD4009E72A4 /* TextFieldWithReset.swift in Sources */,
@@ -775,7 +750,6 @@
 				2AE4D1B02360ECD4009E72A4 /* sampleSales.swift in Sources */,
 				2AE4D1AA2360ECD4009E72A4 /* ModelSettings.swift in Sources */,
 				2AE4D1CD2360ECD4009E72A4 /* ModalType.swift in Sources */,
-				2AE4D2102360ECD4009E72A4 /* ExtensionColor.swift in Sources */,
 				2AE4D1BD2360ECD4009E72A4 /* KPISampleList.swift in Sources */,
 				2AE4D2092360ECD4009E72A4 /* OpExSampleRow.swift in Sources */,
 				2AE4D1E22360ECD4009E72A4 /* MealEditorNoOfCovers.swift in Sources */,
@@ -788,11 +762,9 @@
 				2AE4D2062360ECD4009E72A4 /* CapExSampleList.swift in Sources */,
 				2AE4D1DC2360ECD4009E72A4 /* MealSampleRow.swift in Sources */,
 				2AE4D1E32360ECD4009E72A4 /* MealEditorCover.swift in Sources */,
-				2AE4D2132360ECD4009E72A4 /* Extension+Array.swift in Sources */,
 				2AE4D1B92360ECD4009E72A4 /* KPIEditor.swift in Sources */,
 				2AE4D0F72360ECA0009E72A4 /* ContentView.swift in Sources */,
 				2AE4D2022360ECD4009E72A4 /* CapExEditor.swift in Sources */,
-				2AE4D2122360ECD4009E72A4 /* Collection+Extension.swift in Sources */,
 				2AE4D2202360F50C009E72A4 /* Target.swift in Sources */,
 				2AE4D1F62360ECD4009E72A4 /* ForFunWithNavigationLink.swift in Sources */,
 				2AE4D1B42360ECD4009E72A4 /* sampleKPI.swift in Sources */,
@@ -803,7 +775,7 @@
 				2AE4D20F2360ECD4009E72A4 /* OpExRow.swift in Sources */,
 				2AE4D2042360ECD4009E72A4 /* CapExSampleRow.swift in Sources */,
 				2AE4D1E12360ECD4009E72A4 /* MealList.swift in Sources */,
-				2AE4D1C12360ECD4009E72A4 /* RestaurantFinanceOneRow.swift in Sources */,
+				2AE4D1C12360ECD4009E72A4 /* RowIconAmount.swift in Sources */,
 				2AE4D1CE2360ECD4009E72A4 /* Currency.swift in Sources */,
 				2AE4D21C2360ECD4009E72A4 /* StreamRow.swift in Sources */,
 				2AE4D19E2360ECD4009E72A4 /* BusinessListModal.swift in Sources */,
@@ -824,7 +796,6 @@
 				2AE4D1E82360ECD4009E72A4 /* PandLRow.swift in Sources */,
 				2AE4D1E62360ECD4009E72A4 /* MealDetail.swift in Sources */,
 				2A9CE9C52362339D000A42B5 /* ReportView.swift in Sources */,
-				2AE4D2112360ECD4009E72A4 /* String+Extensions.swift in Sources */,
 				2AE4D1A82360ECD4009E72A4 /* hScrollingCard.swift in Sources */,
 				2AE4D1D92360ECD4009E72A4 /* CapExItem.swift in Sources */,
 				2AE4D1B52360ECD4009E72A4 /* sampleOpex.swift in Sources */,
@@ -1042,6 +1013,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A7FA1362369D803008E8687 /* SwiftPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2AE4D0E72360ECA0009E72A4 /* Project object */;
 }

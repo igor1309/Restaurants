@@ -74,7 +74,6 @@ struct OpExRow : View {
                 generator.impactOccurred()
             }
         }
-        
     }
 }
 

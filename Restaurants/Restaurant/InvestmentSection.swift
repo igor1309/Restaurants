@@ -19,8 +19,8 @@ struct InvestmentSection: View {
         Section(header: Text("Investment & CAPEX".uppercased())) {
             
             NavigationLink(destination: CapExList()) {
-                RestaurantFinanceOneRow(title: "CAPEX, total",
-                                        subtitle: "Monthly Depreciation \(currency.idd) \(depreciation.formattedGrouped)",
+                RowIconAmount(title: "CAPEX, total",
+                              subtitle: "Monthly Depreciation \(currency.idd) \(depreciation.formattedGrouped)",
                     currency: currency,
                     amount: capEx,
                     color: .systemYellow,

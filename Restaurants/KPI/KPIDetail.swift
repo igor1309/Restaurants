@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct KPIDetail: View {
     @Environment(\.presentationMode) var presentation
@@ -16,7 +17,6 @@ struct KPIDetail: View {
     
     @State private var draft: KPIItem
     @State private var isNameUsed = false
-    @State private var showActionSheet = false
     
     init(kpi: KPIItem, isNew: Bool) {
         self.kpi = kpi

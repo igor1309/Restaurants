@@ -18,36 +18,36 @@ struct FinancialSummary: View {
     var opEx: Int { Int(userData.restaurant.opExPerMonth) }
     
     var body: some View {
-            Section(header: Text("Operations".uppercased()),
-                    footer: Text("Revenue and Expenses per month.")) {
-                        NavigationLink(destination: MealList()) {
-                            RestaurantFinanceOneRow(title: "Revenue",
-                                                    subtitle: "\(noOfActiveRevenueStreams) active revenue streams (\(noOfRevenueStreams) total)",
-                                currency: currency,
-                                amount: Int(revenue),
-                                color: .systemGreen,
-                                icon: "text.badge.plus") //increase.indent
-                        }
-                        
-                        NavigationLink(destination: OpExList()) {
-                            RestaurantFinanceOneRow(title: "OpEx (TBD: ex Payroll)",
-                                                    currency: currency,
-                                                    amount: opEx,
-                                                    color: .systemTeal,
-                                                    icon: "text.badge.minus")
-                        }
-                        
-                        RestaurantFinanceOneRow(title: "TO BE DONE Payroll",
-                                                currency: Currency.none,
-                                                amount: -1, color: .systemTeal,
-                                                icon: "person")
-                        
-                        RestaurantFinanceOneRow(title: "TBD: OpEx + Payroll",
-                                                currency: currency,
-                                                amount: opEx,
-                                                color: .systemTeal,
-                                                icon: "text.badge.minus")
-                            .padding(.trailing)
+        Section(header: Text("Operations".uppercased()),
+                footer: Text("Revenue and Expenses per month.")) {
+                    NavigationLink(destination: MealList()) {
+                        RowIconAmount(title: "Revenue",
+                                      subtitle: "\(noOfActiveRevenueStreams) active revenue streams (\(noOfRevenueStreams) total)",
+                            currency: currency,
+                            amount: Int(revenue),
+                            color: .systemGreen,
+                            icon: "text.badge.plus") //increase.indent
+                    }
+                    
+                    NavigationLink(destination: OpExList()) {
+                        RowIconAmount(title: "OpEx (TBD: ex Payroll)",
+                                      currency: currency,
+                                      amount: opEx,
+                                      color: .systemTeal,
+                                      icon: "text.badge.minus")
+                    }
+                    
+                    RowIconAmount(title: "TO BE DONE Payroll",
+                                  currency: Currency.none,
+                                  amount: -1, color: .systemTeal,
+                                  icon: "person")
+                    
+                    RowIconAmount(title: "TBD: OpEx + Payroll",
+                                  currency: currency,
+                                  amount: opEx,
+                                  color: .systemTeal,
+                                  icon: "text.badge.minus")
+                        .padding(.trailing)
         }
     }
 }

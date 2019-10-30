@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 let buttonSize = (UIScreen.main.bounds.width - CGFloat(2 * 16 + 2 * 8)) / 3
 

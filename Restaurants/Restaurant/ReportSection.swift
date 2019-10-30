@@ -14,28 +14,23 @@ struct ReportSection: View {
     @State private var showModal = false
     @State private var modal: ModalType = .report
     @State private var report = Report()
-    @State private var showHint = false
-    @State private var animationAmount = 0.0
     
     var body: some View {
         Section(header: Text("Reports".uppercased()),
                 footer: Text("Hold for contex menu.")) {
-                    RestaurantFinanceOneRow(title: showHint ? "Hold for contex menu" : "Reports",
-                                            subtitle: "P&L, Cash Flow, Expenses",
-                                            currency: .none,
-                                            color: showHint ? .red : .systemOrange,
-                                            icon: showHint ? "hand.point.right" : "text.append")
-                        .contentShape(Rectangle())
+                    
+                    RowIconAmount(title:    "Reports",
+                                  subtitle: "P&L, Cash Flow, Expenses",
+                                  currency: .none,
+                                  color:    .systemOrange,
+                                  icon:     "text.append")
                         .onTapGesture {
-                            let generator = UIImpactFeedbackGenerator(style: .medium)
-                            generator.impactOccurred()
-                            withAnimation {
-                                self.showHint = true
-                                self.animationAmount += 720
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    self.showHint = false
-                                }}}
-                        .rotation3DEffect(.degrees(animationAmount), axis: (x: 1, y: 0, z: 0))
+                            if hapticsAvailable {
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.impactOccurred()
+                            }
+                            self.modal = .allReports
+                            self.showModal = true }
                         .contextMenu {
                             ForEach(userData.restaurant.reports, id: \.self) { report in
                                 Button(action: {
@@ -52,6 +47,10 @@ struct ReportSection: View {
                         .sheet(isPresented: self.$showModal) {
                             if self.modal == .report {
                                 ReportView(report: self.report)
+                            }
+                            if self.modal == .allReports {
+                                Finance()
+                                    .environmentObject(self.userData)
                             }}
         }
     }

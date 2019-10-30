@@ -26,6 +26,7 @@ struct Finance: View {
                 }
                 Spacer()
             }
+            .padding(.top)
             .navigationBarTitle("Finance")
         }
     }

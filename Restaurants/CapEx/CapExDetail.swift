@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct CapExDetail: View {
     @Environment(\.presentationMode) var presentation

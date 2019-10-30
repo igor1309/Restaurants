@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct MealDetail: View {
     @Environment(\.presentationMode) var presentation

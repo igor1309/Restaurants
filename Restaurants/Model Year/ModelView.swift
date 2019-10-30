@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftPI
 
 struct ModelView: View {
     @EnvironmentObject private var userData: UserData
@@ -56,7 +57,7 @@ struct ModelView: View {
             .navigationBarTitle("Model")
                 
             .navigationBarItems(trailing:
-                TrailingButtonSFSymbol(systemName: "square.grid.2x2") {
+                TrailingButtonSFSymbol("square.grid.2x2") {
                     self.showModelSettings = true }
                     .sheet(isPresented: self.$showModelSettings,
                            content: { ModelSettings()

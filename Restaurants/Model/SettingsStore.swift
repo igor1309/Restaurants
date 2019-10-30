@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import CoreHaptics
+
+var hapticsAvailable: Bool { CHHapticEngine.capabilitiesForHardware().supportsHaptics }
 
 final class SettingsStore: ObservableObject {
     @Published var selectedTab: Int = UserDefaults.standard.integer(forKey: "selectedTab") {

@@ -104,7 +104,7 @@ struct ListRow2: View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(alignment: .firstTextBaseline) {
                 Text(verbatim: title)
-                    .font(.headline)
+                    .font(active ? .headline : .callout)
                     .foregroundColor(active ? .primary : .secondary)
                 
                 Spacer()
